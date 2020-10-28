@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <link rel="stylesheet" href="./css/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    </head>
+    
+    <body>
+        <ul class="sidenav">
+            <li><img id="logo"></img></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="./contact.html">Contact us</a></li>
+            <li><a href="./about.html">About us</a></li>
+            <li><a class="active" href="./find-restaurant.html">Find Restaurant</a></li>
+          </ul> 
+        
+        
+        <div class = "controls">
+            <p>Avstand</p>
+            <input id="radius" type="range" min="50" max="500" value="100">
+
+            <p>Pris</p> 
+            <fieldset id="pricing">
+                <input type="radio" id="price4" name="rating" value="4"/><label class = "4price" for="price4" title="Expensive"></label>
+                <input type="radio" id="price3" name="rating" value="3" /><label class="3price" for="price3" title="Pricy"></label>
+                <input type="radio" id="price2" name="rating" value="2" /><label class = "2price" for="price2" title="Affordable"></label>
+                <input type="radio" id="price1" name="rating" value="1" /><label class="1price" for="price1" title="Cheap"></label>
+            </fieldset>
+            
+            <p>Vurdering</p>
+
+            <fieldset id="rating">
+                <input type="radio" id="star5" name="rating" value="5"/><label class = "full" for="star5"></label>
+                <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half"></label>
+                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4"></label>
+                <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half"></label>
+                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3"></label>
+                <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half"></label>
+                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2"></label>
+                <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half"></label>
+                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1"></label>
+                <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf"></label>
+            </fieldset>
+
+        </div>
+
+        <div id="mapBox">
+            <div id = "buttonBox" class="map"></div>
+            <div id="map" class = "map"></div>
+        </div>
+        <div id="main-page-wrapper" style="margin: 0 auto; width: 55%;"></div>
+        
+            
+        </div>
+    
+    <script src="./js/mapstyle.js"></script>
+    <script src="./js/closeableMap.js"></script>
+    <script src="./js/mapscript.js"></script>
+    <script id="api" type="text/javascript"></script>
+    <script src="importAPI.js"></script>
+
+    </body>
+</html>

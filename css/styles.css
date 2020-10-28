@@ -1,0 +1,709 @@
+/*import fontawesome emojies*/
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+html,
+body {
+  position: relative;
+  background-color: #001b31;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: #1a1a2e;
+}
+
+/*width and height of the images*/
+.container div img {
+  width: 350px;
+  height: 200px;
+}
+
+.container div img:hover {
+  filter: opacity(0.5);
+}
+
+.container div {
+  padding-top: 100px;
+  position: absolute;
+  margin: 0 auto 0 auto;
+  color: white;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 24px;
+}
+
+#backgroundContainer {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+#backgroundContainer img {
+  width: 100%;
+  height: 90%;
+}
+
+.locations1,
+.locations2,
+.locations3 {
+  position: absolute;
+  margin: 10% 0 0 10%;
+}
+
+#locationButtons {
+  position: relative;
+}
+
+.locations1 button,
+.locations2 button,
+.locations3 button {
+    width: 44%;
+    height: auto;
+    background-color: #df6020;
+    margin-top: 5%;
+    margin-left: 5%;
+    border: none;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.locations1 button:hover,
+.locations2 button:hover,
+.locations3 button:hover {
+  opacity: 0.8;
+}
+
+.locations1 button span,
+.locations2 button span,
+.locations3 button span  {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 20px;
+  opacity: 0.75;
+  text-align: left;
+  padding-left: 14%;
+}
+
+h1,
+h2 {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  color: #001b31;
+  margin: 0;
+}
+
+.title2,.title3 {
+  margin-top: 10%;
+  width: 50%;
+}
+
+.title2 h1,
+.title2 h2,
+.title3 h1,
+.title3 h2  {
+  color: #df6020;
+  font-size: 80px;
+}
+
+.title3 h1,
+.title3 h2{
+    font-size: 45px;
+}
+
+.title3 h2{
+    margin-bottom: 1%;
+}
+
+.title3{
+    width: 100%;
+    padding: 5% 5% 5% 2%;
+}
+
+.title2 .hl,
+.title3 .hl {
+  border-top: 2px solid whitesmoke;
+}
+
+.title2 p {
+  padding: 1%;
+  word-wrap: break-word;
+  width: 100%;
+}
+
+.title3{
+    background-color: #001b31;
+}
+
+.hl {
+  border-top: 2px solid #001b31;
+  width: inherit;
+  margin: 0 0 0 5px;
+}
+
+h1 {
+  font-size: 100px;
+}
+
+h2 {
+  font-weight: 200;
+  margin: 0px 0px -35px 8px;
+  font-size: 56px;
+}
+
+.locations2 button {
+  width: 280px;
+  margin: 2% 0 0 1%;
+}
+
+.locations2 button span {
+  padding: 9%;
+}
+
+.frontpage-marker {
+  position: absolute;
+  width: 25px;
+  height: auto;
+  margin: 6% 0 0 7%;
+  opacity: 0.75;
+}
+
+#backgroundContainer .questionPeople img {
+  position: relative;
+  width: 25%;
+  height: 25%;
+  margin-left:60%;
+  margin-top: 20%;
+}
+
+#backgroundContainer .imageBurger img {
+    position: relative;
+    z-index: -1;
+    margin: 10% 0 15% 0;
+  }
+
+/*FIND-RESTAURANT*/
+
+.restaurant-image {
+  width: 150px;
+  height: 150px;
+  margin: 15px;
+  border: solid 3px #df6020;
+}
+
+.restaurant-website {
+  position: absolute;
+  margin-left: 55%;
+  top: 85%;
+  font-family: Open Sans;
+  color: #df6020;
+  font-size: 0.65em;
+}
+
+/*TODO: FIKSE MOBILSIDE*/
+@media screen and (max-width: 700px) {
+  #locations {
+    margin: auto;
+  }
+
+  #locationButtons.dropdown * {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+.restaurant-container {
+  position: relative;
+  background-color: #001b31;
+  width: 45%;
+  float: left;
+  margin: 15px;
+  box-shadow: 7px 7px rgba(0, 0, 0, 0.75);
+}
+
+
+.restaurant-text {
+  position: absolute;
+  color: #df6020;
+  top: 35%;
+  margin-left: 55%;
+}
+
+.restaurant-text p {
+  padding: 2px 0 4px 0;
+  font-size: 0.65em;
+  font-family: Helvetica, sans-serif;
+}
+
+.restaurant-title {
+  position: absolute;
+  margin-left: 55%;
+  top: 5%;
+  font-family: "Open Sans",Arial, Helvetica, sans-serif;
+  color: #df6020;
+  font-size: 15px;
+  text-decoration: underline;
+  font-weight: bolder;
+}
+
+.restaurant-rating {
+  position: absolute;
+  margin-left: 55%;
+  bottom: 15%;
+}
+
+.restaurant-rating {
+  border: none;
+  float: left;
+}
+
+.restaurant-rating > input {
+  display: none;
+}
+
+.restaurant-rating > label:before {
+  margin: 5px;
+  font-size: 1em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.restaurant-rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.restaurant-rating > label {
+  color: #ddd;
+  float: right;
+}
+
+.restaurant-pricing {
+  position: absolute;
+  margin-left: 55%;
+  bottom: 25%;
+}
+
+.restaurant-pricing {
+  border: none;
+  float: left;
+  white-space: nowrap;
+}
+
+.restaurant-pricing > input {
+  display: none;
+}
+
+.restaurant-pricing > label:before {
+  margin: 5px;
+  font-size: 1em;
+  font-family: FontAwesome;
+  display: block;
+  content: "\f155";
+}
+
+.restaurant-pricing > label {
+  color: #ddd;
+  float: right;
+}
+
+.titletext {
+  top: 165px;
+  left: 130px;
+}
+
+/*HEADER*/
+ul.sidenav {
+  list-style-type: none;
+  padding: 0;
+  width: 85%;
+  background-color: #001b31;
+  position: relative;
+  height: auto;
+  overflow: auto;
+}
+
+ul.sidenav li a {
+  display: block;
+  color: #ffffff;
+  padding: 15px;
+  text-decoration: none;
+  float: right;
+}
+
+ul.sidenav li a.active {
+  /* background-color: #0f3460; */
+  color: white;
+  border-bottom: 3px solid #df6020;
+}
+
+ul.sidenav li a:hover:not(.active) {
+  background-color: #555;
+}
+
+div.content {
+  margin-left: 0;
+  padding: 1px 16px;
+  height: 1000px;
+}
+#logo {
+  content: url(../img/logo_spisitrondheim-01.png);
+  height: 50%;
+  position: absolute;
+  top: 25%;
+  left: 15%;
+}
+@media screen and (max-width: 700px) {
+  ul.sidenav li a {
+    text-align: center;
+    float: none;
+  }
+  ul.sidenav li #logo {
+    content: none;
+  }
+}
+
+p {
+  color: #ffffff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 10px;
+  margin-bottom: 0;
+  margin-top: 0px;
+}
+
+#testImageClass {
+  border: solid 12px #dfdfdf;
+}
+
+.controls {
+  border-radius: 10px 10px 10px 10px;
+  width: 150px;
+  margin-left: 5%;
+  margin-top: 2%;
+  position: fixed;
+  background-color: #001b31;
+  z-index: 100;
+  padding: 25px 35px 25px 25px;
+  border: solid 2px #df6020;
+}
+
+fieldset,
+label {
+  margin: 0;
+  padding: 0;
+}
+
+#pricing {
+  border: none;
+  float: left;
+  white-space: nowrap;
+}
+
+#pricing > input {
+  display: none;
+}
+
+#pricing > label:before {
+  margin: 5px;
+  font-size: 1em;
+  font-family: FontAwesome;
+  display: block;
+  content: "\f155";
+}
+
+#pricing > label {
+  color: #ddd;
+  float: right;
+}
+
+#pricing > input:checked ~ label,
+#pricing:not(:checked) > label:hover,
+#pricing:not(:checked) > label:hover ~ label {
+  color: #df6020;
+}
+
+#pricing > input:checked + label:hover, /* hover current star when changing rating */
+#pricing > input:checked ~ label:hover,
+#pricing > label:hover ~ input:checked ~ label, /* lighten current selection */
+#pricing > input:checked ~ label:hover ~ label {
+  color: #df6020;
+}
+
+#rating {
+  border: none;
+  float: left;
+}
+
+#rating > input {
+  display: none;
+}
+
+#rating > label:before {
+  margin: 5px;
+  font-size: 1em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+#rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+#rating > label {
+  color: #ddd;
+  float: right;
+}
+
+p {
+  display: inline-block;
+  width: 100%;
+  color: #ffffff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 10px;
+  margin-bottom: 0;
+  margin-top: 0px;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+#rating > input:checked ~ label, /* show gold star when clicked */
+  #rating:not(:checked) > label:hover, /* hover current star */
+  #rating:not(:checked) > label:hover ~ label {
+  color: #df6020;
+} /* hover previous stars in list */
+
+#rating > input:checked + label:hover, /* hover current star when changing rating */
+  #rating > input:checked ~ label:hover,
+  #rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+  #rating > input:checked ~ label:hover ~ label {
+  color: #e1723b;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #df6020;
+  height: 5px;
+}
+
+input[type="range"]::-moz-range-track {
+  background: #df6020;
+  height: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  background: #df6020;
+  margin-top: -5px;
+  border-radius: 50%;
+  border: solid 1px white;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  background: #df6020;
+  margin-top: -5px;
+  border-radius: 50%;
+}
+
+.mapButtonOpen {
+  position: absolute;
+  left: 40%;
+  top: 40%;
+  width: auto;
+  height: auto;
+  padding: 5px 8px 5px 8px;
+  border-radius: 10px;
+  border: solid white 1px;
+  color: white;
+  font-size: 15px;
+  font-family: Helvetica, sans-serif;
+  background-color: #df6020;
+  z-index: 2;
+}
+
+.mapButtonClose {
+    position: absolute;
+    left: 97%;
+    top: 0%;
+    width: auto;
+    height: auto;
+    /*padding: 5px 12px 5px 12px;*/
+    padding: .5% 1% .5% 1%;
+    border: solid white 1px;
+    color: white;
+    border: none;
+    font-size: 15px;
+    font-family: Helvetica, sans-serif;
+    background-color: #df6020;
+    z-index: 2;
+}
+
+.mapButtonClose > input,
+.mapButtonOpen > input {
+  display: none;
+}
+
+.map {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  margin-left: 76%;
+  margin-top: 1%;
+  
+}
+
+.expandedMap {
+  position: absolute;
+  margin: 0 auto;
+  margin-top: 5%;
+  width: 80%;
+  height: 600px;
+  margin-left: 10%;
+}
+
+#mapBox {
+  position: relative;
+  margin: 0 auto;
+  height: 200px;
+  width: 100%;
+  z-index: 2;
+}
+
+.mapButtonClose:hover,
+.mapButtonOpen:hover {
+  opacity: 0.5;
+}
+
+/*Styling the infoWindow on map*/
+
+.infoWindowElement .infoTitle, .infoWindowElement span{
+    font-weight: bold;
+}
+
+.infoWindowElement * {
+    margin-bottom: 2%;
+}
+
+.infoWindowElement a{
+    color: #df6020;
+}
+
+.infoWindowElement .infoTitle{
+    color: #df6020;
+    margin-bottom: 3%;
+    font-size: 15px;
+}
+
+
+
+@media only screen and (max-width: 700px) {
+    #main-page-wrapper{
+        width: 100%;
+        height: 60%;
+    }
+
+    .restaurant-container{
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        margin: 10% 0 10% 0;
+        
+    }
+
+    .restaurant-container * {
+        margin-left: 0;
+    }
+
+    .restaurant-text{
+        margin-top: 40%;
+    }
+
+    .restaurant-image{
+        position: absolute;
+        margin-top: 30%;  
+        width: 90%;
+        height: 30%;
+    }
+
+    .restaurant-website{
+        margin: 6% 0 0 1%;
+        font-size: .7em;
+    }
+
+    .controls{
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: 5%;
+    }
+
+    .map{
+        margin:0%;
+        width: 100%;
+    }
+
+    .expandedMap{
+        margin:0%;
+        width: 100%;
+    }
+
+    .mapButtonClose{
+        left: 92%;
+    }
+
+
+}
+
+/*RESPONSIVE FRONTPAGE*/
+
+@media only screen and (max-width: 700px){
+    #backgroundContainer img{
+        display: none;
+    }
+    #backgroundContainer [class*="locations"]:not([class="locations1"]){
+        display: none;
+    }
+
+    h1,h2{
+        color: #df6020;
+    }
+
+    h1{
+        font-size: 50px;
+        margin-top: 4%;
+        margin-bottom: 8%;
+    }
+
+    h2{
+        font-size: 25px;
+    }
+
+    .locations1{
+        margin-left: 0;
+    }
+
+    div{
+        width: 100%;
+    }
+
+    .locations1 button{
+        width: 100%;
+        margin-left: 0;
+
+    }
+}
