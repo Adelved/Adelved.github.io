@@ -11,7 +11,7 @@ if (localStorage.getItem("storedPosition")) {
   console.log("local storage: ", position);
 } else {
   //default to solsiden if no position is found in local storage
-  var position = [63.434366, 10.41075];
+  var position = {"lat": 63.434366, "lng": 10.41075};
 }
 
 //set up the request that is passed to the map
