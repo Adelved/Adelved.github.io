@@ -1,20 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="contact">
   <head>
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&display=swap" rel="stylesheet">
+    <title >Kontakt oss</title>
   </head>
 
   <body>
-    <ul class="sidenav">
-      <li><img id="logo"></img></li>
-      <li><a  href="./index.html">Home</a></li>
-      <li><a class="active" href="./contact.html">Contact us</a></li>
-      <li><a href="./about.html">About us</a></li>
-      <li><a href="./find-restaurant.html">Find Restaurant</a></li>
-    </ul> 
+    <ul id="navbar"></ul>
 
     <div>
-      <p>CONTACT PAGE</p>
+    <div class=contact_us> </div>
+      <h1 class="contact_text">kontakt oss</h1>
     </div>
+  
+    <div class="form_background"></div>
+
+
+    <div class="container-form">
+      <div class="wrap-form">
+        <div class="form-img" style="background-image: url(img/kontaktoss_form_bilde.png);">
+        </div>
+  
+  
+        <form class="contact-form">
+          <div class="wrap-input1" data-validate="Name is required">
+            <span class="label-input1">Navn:</span>
+            <input class="input1" type="text" name="name" placeholder="Fornavn og etternavn" required>
+            <span class="focus-input1"></span>
+          </div>
+  
+          <div class="wrap-input1" data-validate = "Valid email is required: ex@abc.xyz">
+            <span class="label-input1">Email:</span>
+            <input class="input1" type="text" name="email" placeholder="Din email" required>
+            <span class="focus-input1"></span>
+          </div>
+  
+          <div class="wrap-input1" data-validate="Phone is required">
+            <span class="label-input1">Emne:</span>
+            <input class="input1" type="text" name="emne" placeholder="Ditt emne" required>
+            <span class="focus-input1"></span>
+          </div>
+  
+          <div class="wrap-input1" data-validate = "Message is required">
+            <span class="label-input1">Melding:</span>
+            <textarea class="input1" name="message" required placeholder="Din melding..."></textarea>
+            <span class="focus-input1"></span>
+          </div>
+  
+          <div class="container-contact-form-button">
+            <div class="contact-form-button">
+              <span>Send skjema</span></div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="./js/header.js"></script>
   </body>
 </html>

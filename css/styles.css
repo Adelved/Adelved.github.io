@@ -48,45 +48,67 @@ body {
   height: 90%;
 }
 
-.locations1,
-.locations2,
-.locations3 {
+#backgroundContainer .questionPeople {
+  height: 40%;
+  width: 30%;
+  margin: 20% 0 20% 60%;
+}
+
+#backgroundContainer .location-marker {
+  display: inline;
+  width: 10%;
+}
+
+#frontpage-container1,
+#frontpage-container2,
+#frontpage-container3 {
+  position: relative;
+}
+
+.content-frontpage {
+  margin: 20% 0 0 10%;
   position: absolute;
-  margin: 10% 0 0 10%;
+  width: 40%;
+  height: 30%;
+  z-index: 100;
 }
 
 #locationButtons {
   position: relative;
 }
 
-.locations1 button,
-.locations2 button,
-.locations3 button {
-    width: 44%;
-    height: auto;
-    background-color: #df6020;
-    margin-top: 5%;
-    margin-left: 5%;
-    border: none;
-    padding: 10px 20px;
-    text-align: left;
+#backgroundContainer button {
+  width: 44%;
+  height: auto;
+  background-color: #df6020;
+  margin-top: 3%;
+  margin-left: 1%;
+  border: none;
+  padding: 1% 1%;
+  text-align: left;
+  
 }
 
-.locations1 button:hover,
-.locations2 button:hover,
-.locations3 button:hover {
+#backgroundContainer button:hover {
   opacity: 0.8;
 }
 
-.locations1 button span,
-.locations2 button span,
-.locations3 button span  {
+#backgroundContainer button span {
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   color: white;
-  font-size: 20px;
+  font-size: 1.75em;
   opacity: 0.75;
+  padding: 0 0 0 5%;
+  text-align: center;
+  margin-top: -10%;
+}
+
+#backgroundContainer .locationButtons span{
   text-align: left;
-  padding-left: 14%;
+}
+
+#backgroundContainer .titletext {
+  width: 90%;
 }
 
 h1,
@@ -96,31 +118,45 @@ h2 {
   margin: 0;
 }
 
-.title2,.title3 {
-  margin-top: 10%;
-  width: 50%;
+h1 {
+  font-size: 5em;
+}
+
+h2 {
+  font-weight: 10;
+  margin: 0px 0px -3% 1%;
+  font-size: 3em;
 }
 
 .title2 h1,
 .title2 h2,
 .title3 h1,
-.title3 h2  {
+.title3 h2 {
   color: #df6020;
-  font-size: 80px;
 }
 
-.title3 h1,
-.title3 h2{
-    font-size: 45px;
+.title1{
+  width: 80%;
 }
 
-.title3 h2{
-    margin-bottom: 1%;
+.title1 h2{
+  margin-bottom: -7%;
 }
 
-.title3{
-    width: 100%;
-    padding: 5% 5% 5% 2%;
+.title2 {
+  width: 95%;
+}
+.title3 {
+  width: 100%;
+}
+
+.title3 h1 {
+  font-size: 2.5em;
+}
+
+.title3 h2 {
+  font-size: 1.5em;
+  margin-bottom: -2%;
 }
 
 .title2 .hl,
@@ -130,61 +166,21 @@ h2 {
 
 .title2 p {
   padding: 1%;
-  word-wrap: break-word;
-  width: 100%;
-}
-
-.title3{
-    background-color: #001b31;
+  width: 80%;
 }
 
 .hl {
   border-top: 2px solid #001b31;
   width: inherit;
-  margin: 0 0 0 5px;
-}
-
-h1 {
-  font-size: 100px;
-}
-
-h2 {
-  font-weight: 200;
-  margin: 0px 0px -35px 8px;
-  font-size: 56px;
-}
-
-.locations2 button {
-  width: 280px;
-  margin: 2% 0 0 1%;
-}
-
-.locations2 button span {
-  padding: 9%;
-}
-
-.frontpage-marker {
-  position: absolute;
-  width: 25px;
-  height: auto;
-  margin: 6% 0 0 7%;
-  opacity: 0.75;
 }
 
 #backgroundContainer .questionPeople img {
   position: relative;
   width: 25%;
   height: 25%;
-  margin-left:60%;
+  margin-left: 60%;
   margin-top: 20%;
 }
-
-#backgroundContainer .imageBurger img {
-    position: relative;
-    z-index: -1;
-    margin: 10% 0 15% 0;
-  }
-
 /*FIND-RESTAURANT*/
 
 .restaurant-image {
@@ -203,18 +199,6 @@ h2 {
   font-size: 0.65em;
 }
 
-/*TODO: FIKSE MOBILSIDE*/
-@media screen and (max-width: 700px) {
-  #locations {
-    margin: auto;
-  }
-
-  #locationButtons.dropdown * {
-    margin: 0 auto;
-    width: 100%;
-  }
-}
-
 .restaurant-container {
   position: relative;
   background-color: #001b31;
@@ -223,7 +207,6 @@ h2 {
   margin: 15px;
   box-shadow: 7px 7px rgba(0, 0, 0, 0.75);
 }
-
 
 .restaurant-text {
   position: absolute;
@@ -242,7 +225,7 @@ h2 {
   position: absolute;
   margin-left: 55%;
   top: 5%;
-  font-family: "Open Sans",Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
   color: #df6020;
   font-size: 15px;
   text-decoration: underline;
@@ -317,31 +300,33 @@ h2 {
 }
 
 /*HEADER*/
-ul.sidenav {
+ul#navbar {
   list-style-type: none;
   padding: 0;
-  width: 85%;
+  width: 100%;
   background-color: #001b31;
-  position: relative;
+  position: fixed;
   height: auto;
   overflow: auto;
+  z-index: 10000;
+  padding-right: 10%;
 }
 
-ul.sidenav li a {
+ul#navbar li a {
   display: block;
   color: #ffffff;
-  padding: 15px;
+  padding: 1%;
   text-decoration: none;
   float: right;
 }
 
-ul.sidenav li a.active {
+ul#navbar li a.active {
   /* background-color: #0f3460; */
   color: white;
   border-bottom: 3px solid #df6020;
 }
 
-ul.sidenav li a:hover:not(.active) {
+ul#navbar li a:hover:not(.active) {
   background-color: #555;
 }
 
@@ -358,11 +343,11 @@ div.content {
   left: 15%;
 }
 @media screen and (max-width: 700px) {
-  ul.sidenav li a {
+  ul#navbar li a {
     text-align: center;
     float: none;
   }
-  ul.sidenav li #logo {
+  ul#navbar li #logo {
     content: none;
   }
 }
@@ -380,14 +365,14 @@ p {
 }
 
 .controls {
-  border-radius: 10px 10px 10px 10px;
-  width: 150px;
+  border-radius: 5%;
+  width: 15%;
   margin-left: 5%;
   margin-top: 2%;
   position: fixed;
   background-color: #001b31;
   z-index: 100;
-  padding: 25px 35px 25px 25px;
+  padding: 2%;
   border: solid 2px #df6020;
 }
 
@@ -481,10 +466,238 @@ p {
 #rating > input:checked + label:hover, /* hover current star when changing rating */
   #rating > input:checked ~ label:hover,
   #rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-  #rating > input:checked ~ label:hover ~ label {
-  color: #e1723b;
+  #rating > input:checked ~ label:hover ~ label { color: #e1723b;  } 
+
+
+ 
+/* Kontakt oss side */
+
+.contact_us {
+    background-image: url("../img/kontakt_oss.png");
+    height: 400px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+.contact_text {
+    font-family: 'Open Sans', sans-serif;
+    position: absolute;
+    font-size: 60px;
+    text-align: center;
+    color: #df6020;
+    text-transform: uppercase;
+    top:30%;
+    left: 20%;
 }
 
+
+/* Skjema kontakt oss */
+.form_background {
+    background-image: url("../img/bacground_form.png");
+    width: 100%;
+    height: 1000px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+* {
+	margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+}
+
+.contact-form input {
+	outline: none;
+	border: none;
+}
+
+/* Gjør at tekstramme forsvinner MULIG KRÆSJ*/
+.contact-form textarea {
+  outline: none;
+  border: none;
+}
+
+/* Container til skjema */
+
+.container-form {
+  width: 100%;  
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: -900px;
+  padding: 15px;
+  background: transparent;
+}
+
+.wrap-form {
+  width: 670px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Bakgrunnbildet til skjema */
+.form-img {
+  width: 100%;
+  height: 10em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Innhold skjema */
+
+.contact-form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 20px 20px 160px;
+}
+
+
+/* Input */
+
+.wrap-input1 {
+  width: 100%;
+  position: relative;
+  border-bottom: 1px solid #666666;
+  margin-bottom: 26px;
+}
+
+.label-input1 {
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #df6020;
+  line-height: 1.2;
+  text-align: right;
+  position: absolute;
+  top: 14px;
+  left: -105px;
+  width: 80px;
+
+}
+
+/* Input style, linje blir oransje og placeholder tekst. */
+.input1 {
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.2;
+  display: block;
+  width: 100%;
+  padding: 0 5px;
+}
+
+.focus-input1 {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.focus-input1::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+
+  -webkit-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  transition: all 0.6s;
+
+  background: #df6020;
+}
+
+input.input1 {
+    height: 45px;
+  }
+  
+  textarea.input1 {
+    min-height: 115px;
+    padding-top: 14px;
+    padding-bottom: 13px;
+  }
+  
+  .input1:focus + .focus-input1::before {
+    width: 100%;
+  }
+
+/* Button */
+.container-contact-form-button {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+
+.contact-form-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 160px;
+  height: 50px;
+  background-color: #df6020;
+  border-radius: 25px;
+
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.contact-form-button:hover {
+  background-color: #1a1a2e;
+}
+
+/* Responsiv form */
+
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 43px 15px 57px 15px;
+  }
+
+  .label-input1 {
+    text-align: left;
+    position: unset;
+    top: unset;
+    left: unset;
+    width: 100%;
+    padding: 0 5px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .contact_us {
+    display: none;
+  } 
+
+  .contact_text {
+    font-size: 45px;
+    top: 15%;
+    left: 15%
+  }
+}
+
+/* ikke synne jeanette */
 input[type="range"] {
   -webkit-appearance: none;
 }
@@ -492,6 +705,8 @@ input[type="range"] {
 input[type="range"]:focus {
   outline: none;
 }
+
+
 
 input[type="range"]::-webkit-slider-runnable-track {
   background: #df6020;
@@ -538,20 +753,20 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .mapButtonClose {
-    position: absolute;
-    left: 97%;
-    top: 0%;
-    width: auto;
-    height: auto;
-    /*padding: 5px 12px 5px 12px;*/
-    padding: .5% 1% .5% 1%;
-    border: solid white 1px;
-    color: white;
-    border: none;
-    font-size: 15px;
-    font-family: Helvetica, sans-serif;
-    background-color: #df6020;
-    z-index: 2;
+  position: absolute;
+  left: 97%;
+  top: 0%;
+  width: auto;
+  height: auto;
+  /*padding: 5px 12px 5px 12px;*/
+  padding: 0.5% 1% 0.5% 1%;
+  border: solid white 1px;
+  color: white;
+  border: none;
+  font-size: 15px;
+  font-family: Helvetica, sans-serif;
+  background-color: #df6020;
+  z-index: 2;
 }
 
 .mapButtonClose > input,
@@ -565,7 +780,6 @@ input[type="range"]::-moz-range-thumb {
   height: 200px;
   margin-left: 76%;
   margin-top: 1%;
-  
 }
 
 .expandedMap {
@@ -592,118 +806,256 @@ input[type="range"]::-moz-range-thumb {
 
 /*Styling the infoWindow on map*/
 
-.infoWindowElement .infoTitle, .infoWindowElement span{
-    font-weight: bold;
+.infoWindowElement .infoTitle,
+.infoWindowElement span {
+  font-weight: bold;
 }
 
 .infoWindowElement * {
-    margin-bottom: 2%;
+  margin-bottom: 2%;
 }
 
-.infoWindowElement a{
-    color: #df6020;
+.infoWindowElement a {
+  color: #df6020;
 }
 
-.infoWindowElement .infoTitle{
-    color: #df6020;
-    margin-bottom: 3%;
-    font-size: 15px;
+.infoWindowElement .infoTitle {
+  color: #df6020;
+  margin-bottom: 3%;
+  font-size: 15px;
 }
-
-
 
 @media only screen and (max-width: 700px) {
-    #main-page-wrapper{
-        width: 100%;
-        height: 60%;
-    }
+  #main-page-wrapper {
+    width: 100%;
+    height: 60%;
+  }
 
-    .restaurant-container{
-        margin: 0 auto;
-        width: 100%;
-        height: 100%;
-        margin: 10% 0 10% 0;
-        
-    }
+  .restaurant-container {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    margin: 10% 0 10% 0;
+  }
 
-    .restaurant-container * {
-        margin-left: 0;
-    }
+  .restaurant-container * {
+    margin-left: 0;
+  }
 
-    .restaurant-text{
-        margin-top: 40%;
-    }
+  .restaurant-text {
+    margin-top: 40%;
+  }
 
-    .restaurant-image{
-        position: absolute;
-        margin-top: 30%;  
-        width: 90%;
-        height: 30%;
-    }
+  .restaurant-image {
+    position: absolute;
+    margin-top: 30%;
+    width: 90%;
+    height: 30%;
+  }
 
-    .restaurant-website{
-        margin: 6% 0 0 1%;
-        font-size: .7em;
-    }
+  .restaurant-website {
+    margin: 6% 0 0 1%;
+    font-size: 0.7em;
+  }
 
-    .controls{
-        position: relative;
-        margin: 0 auto;
-        margin-bottom: 5%;
-    }
+  .map {
+    margin: 0%;
+    width: 100%;
+  }
 
-    .map{
-        margin:0%;
-        width: 100%;
-    }
+  .expandedMap {
+    margin: 0%;
+    width: 100%;
+  }
 
-    .expandedMap{
-        margin:0%;
-        width: 100%;
-    }
-
-    .mapButtonClose{
-        left: 92%;
-    }
-
-
+  .mapButtonClose {
+    left: 92%;
+  }
 }
 
 /*RESPONSIVE FRONTPAGE*/
 
-@media only screen and (max-width: 700px){
-    #backgroundContainer img{
-        display: none;
-    }
-    #backgroundContainer [class*="locations"]:not([class="locations1"]){
-        display: none;
+@media only screen and (max-width: 700px) {
+  #backgroundContainer img:not(.location-marker) {
+    display: none;
+  }
+  #backgroundContainer [id*="frontpage-container"]:not([id="frontpage-container1"]) {
+    display: none;
+  }
+
+  #backgroundContainer * {
+    display: block;
+    width: 100%;
+  }
+
+  #backgroundContainer button {
+    width: 90%;
+  }
+
+  #backgroundContainer div{
+    width: 100%;
+  }
+
+  h1,
+  h2 {
+    color: #df6020;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin-top: 4%;
+    margin-bottom: 8%;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+ /*some styling for "about us"*/
+
+ .img-header {
+    height: 350px;
+    width: 100%;
+ }
+  .controls {
+    position: relative;
+    width: 60%;
+    position: relative;
+    margin: 5% auto 5% auto;
+    padding: 5% 10% 10% 10%;
+  }
+
+  .map {
+    margin: 0%;
+    width: 100%;
+  }
+
+  .expandedMap {
+    margin: 0%;
+    width: 100%;
+  }
+
+  .mapButtonClose {
+    left: 92%;
+  }
+}
+
+    /*styling the headline*/
+    .headline {
+        position: relative;
+        display: inline-block;
+        text-transform: uppercase;
     }
 
-    h1,h2{
+   .headline #about-us {
+        font-size: 60px;
+        color: #ffffff;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
+        position: absolute;
+        z-index: 999;
+        margin: 0 auto;
+        left: 15%;
+        right: 0%;
+        top: 30%;
+    }
+
+@media only screen and (max-width: 700px) {
+
+  #backgroundContainer img:not(.location-marker) {
+    display: none;
+  }
+  #backgroundContainer [id*="frontpage-container"]:not([id="frontpage-container1"]) {
+    display: none;
+  }
+
+  #backgroundContainer * {
+    display: block;
+    width: 100%;
+  }
+
+  #backgroundContainer button {
+    width: 90%;
+  }
+
+  #backgroundContainer div{
+    width: 100%;
+  }
+
+  h1,
+  h2 {
+    color: #df6020;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin-top: 4%;
+    margin-bottom: 8%;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+
+}
+    #information{
+        margin: 40px 15% ;
+        column-count: 2;
+        column-gap: 20px;
+        column-span: all;
+        color: #ffffff;
+        font-size: 0.75em;
+        max-width: 70%;
+    }
+
+  .about {
+        margin: 40px 15%;
+        color: #ffffff;
+        font-size: 0.75em;
+        max-width: 70%;
+    }
+
+    #our-team {
+        font-size: 60px;
         color: #df6020;
+        text-transform: uppercase;
+        margin: 60px 15% 0 15%;
     }
 
-    h1{
-        font-size: 50px;
-        margin-top: 4%;
-        margin-bottom: 8%;
+    .col-1 {
+        float: left;
+        width: 30%;
     }
 
-    h2{
-        font-size: 25px;
+    .col-2 {
+        float: left;
+        width: 30%;
     }
 
-    .locations1{
-        margin-left: 0;
+    .col-3 {
+        float: left;
+        width: 30%;
     }
 
-    div{
-        width: 100%;
+    .team{
+        margin: 40px 15%;
+        text-align: center;
+        max-width: 70%;
     }
 
-    .locations1 button{
-        width: 100%;
-        margin-left: 0;
-
+    .profile {
+        max-width: 60%;
+    }
+@media screen and (max-width: 700px) {
+    .img-header{
+       visibility: hidden;
+       height: 30%;
+       width: 40%;
+    }
+    #information {
+        column-count: 1;
     }
 }
+
+
+

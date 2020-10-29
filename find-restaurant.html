@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id= "restaurant">
     <head>
         
         <link rel="stylesheet" href="./css/styles.css">
@@ -9,15 +9,7 @@
     </head>
     
     <body>
-        <ul class="sidenav">
-            <li><img id="logo"></img></li>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./contact.html">Contact us</a></li>
-            <li><a href="./about.html">About us</a></li>
-            <li><a class="active" href="./find-restaurant.html">Find Restaurant</a></li>
-          </ul> 
-        
-        
+        <ul id="navbar"></ul> 
         <div class = "controls">
             <p>Avstand</p>
             <input id="radius" type="range" min="50" max="500" value="100">
@@ -61,6 +53,7 @@
     <script src="./js/mapscript.js"></script>
     <script id="api" type="text/javascript"></script>
     <script src="importAPI.js"></script>
+    <script src="./js/header.js"></script>
 
     </body>
 </html>

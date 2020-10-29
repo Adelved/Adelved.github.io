@@ -3,6 +3,8 @@ var position = {
   lng: 0,
 };
 
+console.log('GETPOSITIONS')
+
 var preDefPositions = [
   [63.434366, 10.41075],
   [63.429997, 10.393237],
@@ -22,10 +24,12 @@ function createObject(element, index) {
 }
 
 var buttons = document.querySelectorAll("#locationButtons button");
+buttons.forEach((element) => console.log(element.innerText))
 
 buttons.forEach((element, index) =>
   element.addEventListener("click", function () {
-    if (element.firstElementChild.innerText === "PRØV LYKKEN") {
+    
+    if (element.id === "lucky") {
       var pos = createObject(element, Math.floor(Math.random() * 5));
     } else {
       var pos = createObject(element, index);
@@ -33,6 +37,5 @@ buttons.forEach((element, index) =>
     position.lat = pos.lat;
     position.lng = pos.lng;
     localStorage.setItem("storedPosition", JSON.stringify(position));
-    console.log(pos.name, position);
   })
 );

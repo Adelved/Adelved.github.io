@@ -1,4 +1,4 @@
-var map, infowindow, locationCircle
+var map, infowindow, locationCircle;
 var markers = [];
 var restaurants = [];
 var infoBoxes = [];
@@ -6,12 +6,12 @@ var infoBoxes = [];
 //store website URLs from the API globally.
 var webAdresses = [];
 //parse the locally stored position object
+console.log(localStorage.getItem("storedPosition"));
 if (localStorage.getItem("storedPosition")) {
   var position = JSON.parse(localStorage.getItem("storedPosition"));
-  console.log("local storage: ", position);
 } else {
   //default to solsiden if no position is found in local storage
-  var position = {"lat": 63.434366, "lng": 10.41075};
+  var position = {lat: 63.434366, lng: 10.41075};
 }
 
 //set up the request that is passed to the map
@@ -24,8 +24,6 @@ var request = {
 };
 
 var parent = document.getElementById("main-page-wrapper");
-
-
 
 function createMap() {
   var options = {
@@ -182,31 +180,29 @@ function getCurrentDay() {
   return date.getDay() - 1;
 }
 
-
-function getOpeningHours(place){
-  console.log(place)
+function getOpeningHours(place) {
+  console.log(place);
   var returnString;
   if (place.business_status !== "OPERATIONAL") {
     var todaysHours = place.business_status;
     returnString = todaysHours;
   } else {
     var todaysHours = place.opening_hours.weekday_text[getCurrentDay()];
-    returnString = createTimeString(todaysHours.split(":"))
+    returnString = createTimeString(todaysHours.split(":"));
   }
-  return returnString
+  return returnString;
 }
 
-function createTimeString(arr){
+function createTimeString(arr) {
   var formattedString = "";
-  for(var i = 1; i < arr.length; i++){
-    if(i !== arr.length - 1){
-      formattedString += arr[i] + ':'
-    }else{
-      formattedString += arr[i]
+  for (var i = 1; i < arr.length; i++) {
+    if (i !== arr.length - 1) {
+      formattedString += arr[i] + ":";
+    } else {
+      formattedString += arr[i];
     }
-    
   }
-  return formattedString
+  return formattedString;
 }
 
 function createRatingDiv() {
@@ -246,8 +242,10 @@ function formatInfoWindowContent(place) {
     place.website +
     "' target='_blank'>" +
     place.website +
-    "</a></div><div><a href='"+place.url+"' target='_blank'>Vis i Google</a></div></div>";
-    return infoContent
+    "</a></div><div><a href='" +
+    place.url +
+    "' target='_blank'>Vis i Google</a></div></div>";
+  return infoContent;
 }
 
 //DETAIL REQUEST - get website, phone number, total ratings, opening hours
@@ -288,7 +286,7 @@ function getWebsite(restaurant) {
 
     var openingTimeElem = document.createElement("p");
     var adressElem = document.createElement("p");
-    openingTimeElem.innerText = "Åpen: " + getOpeningHours(place)
+    openingTimeElem.innerText = "Åpen: " + getOpeningHours(place);
 
     adressElem.innerText = "Adr: " + place.vicinity;
 
@@ -297,7 +295,7 @@ function getWebsite(restaurant) {
 
     parent.appendChild(subDiv);
   }
-  
+
   //fetch the current day, 0-indexed
 
   service.getDetails(requestDetails, callbackDetails);
@@ -307,9 +305,8 @@ function getWebsite(restaurant) {
       status == google.maps.places.PlacesServiceStatus.OK &&
       !webAdresses.includes(place.website)
     ) {
-      
       createWebsiteElement(place, websiteDiv);
-      console.log(place.name)
+      console.log(place.name);
       createMarker(place);
       try {
         var k = document.querySelector(
@@ -320,7 +317,7 @@ function getWebsite(restaurant) {
       } catch (error) {
         console.log(error.message);
       }
-      
+
       webAdresses.push(place.website);
     } else if (
       status == google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT
@@ -385,12 +382,13 @@ function createMarker(place) {
   });
   markers.push(marker);
   google.maps.event.addListener(marker, "click", () => {
-    if(document.getElementsByClassName("mapButtonClose")[0].childNodes[0].checked){
+    if (
+      document.getElementsByClassName("mapButtonClose")[0].childNodes[0].checked
+    ) {
       infowindow.open(map);
       infowindow.setPosition(place.geometry.location);
       infowindow.setContent(formatInfoWindowContent(place));
     }
-  
   });
 }
 

@@ -12,14 +12,14 @@ button.childNodes[0].addEventListener("change", function () {
     divElement.setAttribute("class", "expandedMap");
     button.setAttribute("class", "mapButtonClose");
     button.childNodes[1].nodeValue = xText;
-    map.setOptions({draggable: true});
+    map.setOptions({ draggable: true });
   } else {
     divElement.setAttribute("class", "map");
     theMap.setAttribute("class", "map");
     button.setAttribute("class", "mapButtonOpen");
     button.childNodes[1].nodeValue = showMapText;
-    infowindow.close()
-    map.setOptions({draggable: false});
+    infowindow.close();
+    map.setOptions({ draggable: false });
   }
 });
 
