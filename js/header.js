@@ -9,9 +9,10 @@ var nav = document.getElementById("navbar");
 //Adds logo
 var li = document.createElement("li");
 var img = document.createElement('img')
-img.setAttribute('id','logo')
+img.setAttribute('class','logo')
 li.appendChild(img)
 nav.appendChild(li)
+
 
 //Adds page-buttons
 for (var i = 0; i < pages.length; i++) {

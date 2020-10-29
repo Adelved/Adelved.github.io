@@ -9,7 +9,11 @@
     </head>
     
     <body>
-        <ul id="navbar"></ul> 
+        <div id="navbar-wrapper">
+            <ul id="navbar"></ul>
+        </div>
+
+        <div class="header-pad">
         <div class = "controls">
             <p>Avstand</p>
             <input id="radius" type="range" min="50" max="500" value="100">
@@ -39,21 +43,37 @@
 
         </div>
 
-        <div id="mapBox">
-            <div id = "buttonBox" class="map"></div>
-            <div id="map" class = "map"></div>
-        </div>
-        <div id="main-page-wrapper" style="margin: 0 auto; width: 55%;"></div>
-        
+            <div id="mapBox">
+                <div id = "buttonBox" class="map"></div>
+                <div id="map" class="map"></div>
+            </div>
+            
+            <div id="main-page-wrapper"></div>
+            <div class = "footer-padding"></div>
+            <footer id = "footer"></footer>
             
         </div>
+            
+        
+        
+        
+    </div>
+
+
+        
+
+
+    <script src="./js/createSVG.js"></script>
+    <script src="./js/header.js"></script>
     
+
     <script src="./js/mapstyle.js"></script>
     <script src="./js/closeableMap.js"></script>
     <script src="./js/mapscript.js"></script>
     <script id="api" type="text/javascript"></script>
-    <script src="importAPI.js"></script>
-    <script src="./js/header.js"></script>
+    <script src="./js/importAPI.js"></script>
+    <script src="./js/footer.js"></script>
+
 
     </body>
 </html>

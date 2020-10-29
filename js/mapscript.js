@@ -1,7 +1,8 @@
 var map, infowindow, locationCircle;
 var markers = [];
-var restaurants = [];
 var infoBoxes = [];
+
+var divHeigth;
 
 //store website URLs from the API globally.
 var webAdresses = [];
@@ -22,6 +23,10 @@ var request = {
   price_level: 0,
   rating: 0,
 };
+
+function scaleMainWrapperHeight(div){
+  div.style.minHeight = (div.children.length * 17).toString() + "%"
+}
 
 var parent = document.getElementById("main-page-wrapper");
 
@@ -54,7 +59,7 @@ function createMap() {
       }
 
       parent = document.getElementById("main-page-wrapper");
-
+      
       for (var i = 0; i < results.length; i++) {
         if (
           results[i].rating >= request.rating &&
@@ -64,10 +69,10 @@ function createMap() {
             createImage(parent, results[i]);
           }
           getWebsite(results[i]);
-          //createMarker(results[i]);
         }
       }
     }
+    //scaleMainWrapperHeight(parent)
   }
 
   initCircle();
@@ -170,7 +175,6 @@ function createImage(parentDiv, element) {
   subDiv.appendChild(subDivTitleText);
   subDiv.appendChild(ratingDiv);
   subDiv.appendChild(priceDiv);
-
   parentDiv.appendChild(subDiv);
   infoBoxes.push(subDiv);
 }
@@ -181,7 +185,6 @@ function getCurrentDay() {
 }
 
 function getOpeningHours(place) {
-  console.log(place);
   var returnString;
   if (place.business_status !== "OPERATIONAL") {
     var todaysHours = place.business_status;
@@ -306,7 +309,6 @@ function getWebsite(restaurant) {
       !webAdresses.includes(place.website)
     ) {
       createWebsiteElement(place, websiteDiv);
-      console.log(place.name);
       createMarker(place);
       try {
         var k = document.querySelector(
@@ -322,7 +324,6 @@ function getWebsite(restaurant) {
     } else if (
       status == google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT
     ) {
-      console.log(status);
       setTimeout(function () {
         getWebsite(restaurant);
       }, 1000);

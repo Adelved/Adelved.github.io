@@ -12,7 +12,10 @@
   </head>
 
   <body>
-    <ul id="navbar"></ul>
+
+      <div id="navbar-wrapper">
+      <ul id="navbar"></ul>
+      </div>
 
     <div id="backgroundContainer">
       <div id="frontpage-container1">
@@ -55,6 +58,7 @@
           </div>
         </div>
         <img
+          class = "frontpage-img "
           src="./resources/images/lukas-blazek-f-TWhXOrLiU-unsplash.jpg"
           alt="backgroundImage.jpg"
         />
@@ -98,12 +102,19 @@
             </button>
           </div>
         </div>
-        <img src="./resources/images/lidye-1Shk_PkNkNw-unsplash.jpg" alt="" />
+        <img
+         class = "frontpage-img "
+         src="./resources/images/lidye-1Shk_PkNkNw-unsplash.jpg" alt="" />
       </div>
+      <footer id = "footer"></footer>
     </div>
+   
+    
+
+    <script src="./js/createSVG.js"></script>
     <script src="./js/getPosition.js"></script>
     <script src="./js/positionSVGmarkers.js"></script>
     <script src="./js/header.js"></script>
-
+    <script src="./js/footer.js"></script>
   </body>
 </html>
