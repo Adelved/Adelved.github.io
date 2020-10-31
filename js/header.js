@@ -1,16 +1,19 @@
-const pages = [["home", "Home","./index.html"],
-  ["contact", "Contact us", "./contact.html"],
-  ["about", "About us", "./about.html"],
-  ["restaurant","Find Restaurant", "./find-restaurant.html"]];
+const pages = [["home", "Hjem","./index.html"],
+  ["contact", "Kontakt oss", "./contact.html"],
+  ["about", "Om oss", "./about.html"],
+  ["restaurant","Finn Restaurant", "./find-restaurant.html"]];
 
 var currentPage = document.getElementsByTagName("html")[0].id;
 var nav = document.getElementById("navbar");
 
-//Adds logo
+//Adds logo with link to home
 var li = document.createElement("li");
 var img = document.createElement('img')
+var a = document.createElement("a")
+a.setAttribute("href","./index.html")
 img.setAttribute('class','logo')
-li.appendChild(img)
+a.appendChild(img)
+li.appendChild(a)
 nav.appendChild(li)
 
 

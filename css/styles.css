@@ -92,6 +92,16 @@ body {
   
 }
 
+#frontpage-container3 button {
+  margin-left: unset;
+  text-align: center;
+}
+
+#backgroundContainer #frontpage-container3 button span{
+  padding: unset;
+  text-align: center;
+}
+
 #backgroundContainer button:hover {
   opacity: 0.8;
 }
@@ -451,6 +461,8 @@ label {
   padding: 0;
 }
 
+/*BOTH THE RATING AND PRICE CSS STYLING IS INSPIRED BY : https://stackoverflow.com/questions/58039721/issue-with-star-rating-css*/
+/*STARTS HERE*/
 #pricing {
   border: none;
   float: left;
@@ -473,6 +485,7 @@ label {
   color: #ddd;
   float: right;
 }
+
 
 #pricing > input:checked ~ label,
 #pricing:not(:checked) > label:hover,
@@ -513,16 +526,7 @@ label {
   color: #ddd;
   float: right;
 }
-
-p {
-  display: inline-block;
-  width: 100%;
-  color: #ffffff;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 10px;
-  margin-bottom: 0;
-  margin-top: 0px;
-}
+/*STARTS HERE*/
 
 /***** CSS Magic to Highlight Stars on Hover *****/
 
@@ -537,6 +541,17 @@ p {
   #rating > label:hover ~ input:checked ~ label, /* lighten current selection */
   #rating > input:checked ~ label:hover ~ label { color: #e1723b;  } 
 
+/*ENDS HERE*/
+  p {
+    display: inline-block;
+    width: 100%;
+    color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    margin-bottom: 0;
+    margin-top: 0px;
+  }
+  
 /* ikke synne jeanette */
 input[type="range"] {
   -webkit-appearance: none;

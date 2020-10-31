@@ -20,13 +20,9 @@ var request = {
   location: position,
   radius: document.getElementById("radius").value,
   type: "restaurant",
-  price_level: 0,
-  rating: 0,
+  price_level: 4,
+  rating: 5,
 };
-
-function scaleMainWrapperHeight(div){
-  div.style.minHeight = (div.children.length * 17).toString() + "%"
-}
 
 var parent = document.getElementById("main-page-wrapper");
 
@@ -62,8 +58,8 @@ function createMap() {
       
       for (var i = 0; i < results.length; i++) {
         if (
-          results[i].rating >= request.rating &&
-          results[i].price_level >= request.price_level
+          results[i].rating <= request.rating &&
+          results[i].price_level <= request.price_level
         ) {
           if (results[i].photos) {
             createImage(parent, results[i]);
@@ -72,7 +68,6 @@ function createMap() {
         }
       }
     }
-    //scaleMainWrapperHeight(parent)
   }
 
   initCircle();
@@ -105,6 +100,7 @@ function createMap() {
       .getElementsByTagName("input")) {
       if (item.checked) {
         request.price_level = parseFloat(item.value); //return the checked value
+        console.log(request)
       }
     }
     if (infoBoxes.length > 0) {
@@ -127,6 +123,7 @@ function createMap() {
       .getElementsByTagName("input")) {
       if (item.checked) {
         request.rating = parseFloat(item.value); //return the checked value
+        console.log("change rating: ", request)
       }
     }
     if (infoBoxes.length > 0) {
@@ -231,6 +228,7 @@ function createRatingDiv() {
   return fieldset;
 }
 
+//format the elements of the information window (pop-up boxes when markers are clicked on map)
 function formatInfoWindowContent(place) {
   var infoContent =
     "<div class='infoWindowElement'><div class='infoTitle'>" +
@@ -299,7 +297,7 @@ function getWebsite(restaurant) {
     parent.appendChild(subDiv);
   }
 
-  //fetch the current day, 0-indexed
+
 
   service.getDetails(requestDetails, callbackDetails);
 
