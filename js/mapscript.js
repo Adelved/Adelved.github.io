@@ -7,11 +7,10 @@ var divHeigth;
 //store website URLs from the API globally.
 var webAdresses = [];
 //parse the locally stored position object
-console.log(localStorage.getItem("storedPosition"));
 if (localStorage.getItem("storedPosition")) {
   var position = JSON.parse(localStorage.getItem("storedPosition"));
 } else {
-  //default to solsiden if no position is found in local storage
+  //default to SOLSIDEN if no position is found in local storage
   var position = {lat: 63.434366, lng: 10.41075};
 }
 
@@ -100,7 +99,6 @@ function createMap() {
       .getElementsByTagName("input")) {
       if (item.checked) {
         request.price_level = parseFloat(item.value); //return the checked value
-        console.log(request)
       }
     }
     if (infoBoxes.length > 0) {
@@ -123,7 +121,6 @@ function createMap() {
       .getElementsByTagName("input")) {
       if (item.checked) {
         request.rating = parseFloat(item.value); //return the checked value
-        console.log("change rating: ", request)
       }
     }
     if (infoBoxes.length > 0) {
@@ -177,17 +174,25 @@ function createImage(parentDiv, element) {
 }
 
 function getCurrentDay() {
+  var returnDate
   date = new Date();
-  return date.getDay() - 1;
+  if (date.getDay() === 0){
+    returnDate = 6
+  }else{
+    returnDate = date.getDay() - 1
+  }
+  return returnDate
 }
 
 function getOpeningHours(place) {
   var returnString;
+  
   if (place.business_status !== "OPERATIONAL") {
     var todaysHours = place.business_status;
     returnString = todaysHours;
   } else {
     var todaysHours = place.opening_hours.weekday_text[getCurrentDay()];
+ 
     returnString = createTimeString(todaysHours.split(":"));
   }
   return returnString;
@@ -235,7 +240,7 @@ function formatInfoWindowContent(place) {
     place.name +
     "</div><div><span>adr:</span> " +
     place.vicinity +
-    "</div><div><span>Åpen:</span> " +
+    "</div><div><span>åpen:</span> " +
     getOpeningHours(place) +
     "</div><div><span>tlf:</span> " +
     place.formatted_phone_number +
