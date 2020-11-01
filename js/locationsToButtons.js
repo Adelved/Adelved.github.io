@@ -1,9 +1,10 @@
 function locationsToButtons(buttons){
-    var position = {
-      lat: 0,
-      lng: 0,
-    };
+    var pos;
    
+    function randomNumber(max){
+
+      return Math.floor(Math.random() * (max))
+    }
     
     var preDefPositions = [
       [63.434366, 10.41075], //SOLSIDEN
@@ -22,23 +23,22 @@ function locationsToButtons(buttons){
       positionObject.lng = preDefPositions[index][1];
       return positionObject;
     }
-    
-    buttons.forEach((element,index) => console.log(createObject(element,index)))
-    
-    buttons.forEach((element, index) =>
+  
+    buttons.forEach((element, index) => 
       element.addEventListener("click", function () {
-
         if (element.id === "lucky") {
-          var pos = createObject(element, Math.floor(Math.random() * 5));
+          var randomLocation = randomNumber(preDefPositions.length-1)
+          pos = createObject(buttons[randomLocation],randomLocation)
+          sessionStorage.setItem('storedPosition', JSON.stringify(pos))
         } else {
-          var pos = createObject(element, index);
-          console.log(pos)
+          pos = createObject(element, index)
+          sessionStorage.setItem('storedPosition', JSON.stringify(pos))
         }
-        position.lat = pos.lat;
-        position.lng = pos.lng;
         
-        localStorage.setItem("storedPosition", JSON.stringify(pos));
       })
+      
+      
     );
-    }
+    
 
+}

@@ -1,18 +1,30 @@
 var map, infowindow, locationCircle;
 var markers = [];
 var infoBoxes = [];
-
-var divHeigth;
-
 //store website URLs from the API globally.
 var webAdresses = [];
 //parse the locally stored position object
-if (localStorage.getItem("storedPosition")) {
-  var position = JSON.parse(localStorage.getItem("storedPosition"));
+
+
+if (window.sessionStorage.getItem("storedPosition")) {
+  var position = JSON.parse(window.sessionStorage.getItem("storedPosition"));
+  console.log(position)
 } else {
-  //default to SOLSIDEN if no position is found in local storage
-  var position = {lat: 63.434366, lng: 10.41075};
+  //default to SOLSIDEN if no position is found in sessionstorage
+  var position = {name: "SOLSIDEN",lat: 63.434366, lng: 10.41075};
 }
+
+function setCurrentActive(position){
+  var buttons = document.querySelectorAll('.dropdown-content a')
+  buttons.forEach((element,index) => {
+    if(element.firstChild.firstChild.innerText === position.name){
+      element.firstChild.style.color = "#df6020"
+      buttons[index].style.color = "#df6020"
+    }
+  })
+}
+
+setCurrentActive(position)
 
 //set up the request that is passed to the map
 var request = {
@@ -191,9 +203,15 @@ function getOpeningHours(place) {
     var todaysHours = place.business_status;
     returnString = todaysHours;
   } else {
-    var todaysHours = place.opening_hours.weekday_text[getCurrentDay()];
+    try{
+      var todaysHours = place.opening_hours.weekday_text[getCurrentDay()];
  
-    returnString = createTimeString(todaysHours.split(":"));
+      returnString = createTimeString(todaysHours.split(":"));
+    }catch{
+      var todaysHours = "Utilgjengelig"
+      returnString = todaysHours
+    }
+
   }
   return returnString;
 }
@@ -308,28 +326,28 @@ function getWebsite(restaurant) {
 
   function callbackDetails(place, status) {
     if (
-      status == google.maps.places.PlacesServiceStatus.OK &&
-      !webAdresses.includes(place.website)
+      status == google.maps.places.PlacesServiceStatus.OK
     ) {
       createWebsiteElement(place, websiteDiv);
       createMarker(place);
       try {
         var k = document.querySelector(
           ".restaurant-container[place_id=" + restaurant.place_id + "]"
+          
         );
         k.appendChild(websiteDiv);
         createTextElement(place, k);
       } catch (error) {
+        console.log(k)
         console.log(error.message);
       }
-
       webAdresses.push(place.website);
     } else if (
       status == google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT
     ) {
       setTimeout(function () {
         getWebsite(restaurant);
-      }, 1000);
+      }, 800);
     }
   }
 }
