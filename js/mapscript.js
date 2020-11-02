@@ -3,36 +3,35 @@ var markers = [];
 var infoBoxes = [];
 //store website URLs from the API globally.
 var webAdresses = [];
-//parse the locally stored position object
 
+returnedObjects = [];
+//parse the locally stored position object
 
 if (window.sessionStorage.getItem("storedPosition")) {
   var position = JSON.parse(window.sessionStorage.getItem("storedPosition"));
-  console.log(position)
 } else {
   //default to SOLSIDEN if no position is found in sessionstorage
-  var position = {name: "SOLSIDEN",lat: 63.434366, lng: 10.41075};
+  var position = { name: "SOLSIDEN", lat: 63.434366, lng: 10.41075 };
 }
 
-function setCurrentActive(position){
-  var buttons = document.querySelectorAll('.dropdown-content a')
-  buttons.forEach((element,index) => {
-    if(element.firstChild.firstChild.innerText === position.name){
-      element.firstChild.style.color = "#df6020"
-      buttons[index].style.color = "#df6020"
+function setCurrentActive(position) {
+  var buttons = document.querySelectorAll(".dropdown-content a");
+  buttons.forEach((element, index) => {
+    if (element.firstChild.firstChild.innerText === position.name) {
+      element.firstChild.style.color = "#df6020";
+      buttons[index].style.color = "#df6020";
+      document.querySelector('.dropbtn').innerText = position.name
     }
-  })
+  });
 }
 
-setCurrentActive(position)
+setCurrentActive(position);
 
 //set up the request that is passed to the map
 var request = {
   location: position,
-  radius: document.getElementById("radius").value,
+  radius: 500,
   type: "restaurant",
-  price_level: 4,
-  rating: 5,
 };
 
 var parent = document.getElementById("main-page-wrapper");
@@ -66,17 +65,13 @@ function createMap() {
       }
 
       parent = document.getElementById("main-page-wrapper");
-      
+
       for (var i = 0; i < results.length; i++) {
-        if (
-          results[i].rating <= request.rating &&
-          results[i].price_level <= request.price_level
-        ) {
-          if (results[i].photos) {
-            createImage(parent, results[i]);
-          }
-          getWebsite(results[i]);
+        console.log(results[i]);
+        if (results[i].photos) {
+          createImage(parent, results[i]);
         }
+        getWebsite(results[i]);
       }
     }
   }
@@ -84,68 +79,7 @@ function createMap() {
   initCircle();
 
   service.nearbySearch(request, callback);
-
-  document.getElementById("radius").addEventListener("change", function () {
-    request.radius = this.value;
-    radius.title = this.value + "m";
-
-    if (infoBoxes.length > 0) {
-      deleteRestaurants();
-      infoBoxes = [];
-    }
-
-    if (markers.length > 0) {
-      deleteMarker(markers);
-    }
-
-    initCircle();
-    service.nearbySearch(request, callback);
-  });
-
-  //get numeric value of the rating
-  //wait for change in the fieldset tag
-  document.getElementById("pricing").addEventListener("change", function () {
-    //loop through input tags to find the "checked" input tag
-    for (item of document
-      .getElementById("pricing")
-      .getElementsByTagName("input")) {
-      if (item.checked) {
-        request.price_level = parseFloat(item.value); //return the checked value
-      }
-    }
-    if (infoBoxes.length > 0) {
-      deleteRestaurants();
-      infoBoxes = [];
-    }
-
-    if (markers.length > 0) {
-      deleteMarker(markers);
-    }
-    service.nearbySearch(request, callback);
-  });
-
-  //get numeric value of the rating
-  //wait for change in the fieldset tag
-  document.getElementById("rating").addEventListener("change", function () {
-    //loop through input tags to find the "checked" input tag
-    for (item of document
-      .getElementById("rating")
-      .getElementsByTagName("input")) {
-      if (item.checked) {
-        request.rating = parseFloat(item.value); //return the checked value
-      }
-    }
-    if (infoBoxes.length > 0) {
-      deleteRestaurants();
-      infoBoxes = [];
-    }
-    if (markers.length > 0) {
-      deleteMarker(markers);
-    }
-    service.nearbySearch(request, callback);
-  });
 }
-
 function createImage(parentDiv, element) {
   //create the image element
   var img = document.createElement("img");
@@ -158,6 +92,8 @@ function createImage(parentDiv, element) {
   // create div which will contain a restuarant proposal
   var subDiv = document.createElement("div");
   subDiv.setAttribute("place_id", element.place_id);
+  subDiv.setAttribute("price_level", element.price_level);
+  subDiv.setAttribute("rating", element.rating);
   // add element to class
   subDiv.classList.add("restaurant-container");
 
@@ -186,32 +122,31 @@ function createImage(parentDiv, element) {
 }
 
 function getCurrentDay() {
-  var returnDate
+  var returnDate;
   date = new Date();
-  if (date.getDay() === 0){
-    returnDate = 6
-  }else{
-    returnDate = date.getDay() - 1
+  if (date.getDay() === 0) {
+    returnDate = 6;
+  } else {
+    returnDate = date.getDay() - 1;
   }
-  return returnDate
+  return returnDate;
 }
 
 function getOpeningHours(place) {
   var returnString;
-  
+
   if (place.business_status !== "OPERATIONAL") {
     var todaysHours = place.business_status;
     returnString = todaysHours;
   } else {
-    try{
+    try {
       var todaysHours = place.opening_hours.weekday_text[getCurrentDay()];
- 
-      returnString = createTimeString(todaysHours.split(":"));
-    }catch{
-      var todaysHours = "Utilgjengelig"
-      returnString = todaysHours
-    }
 
+      returnString = createTimeString(todaysHours.split(":"));
+    } catch {
+      var todaysHours = "Utilgjengelig";
+      returnString = todaysHours;
+    }
   }
   return returnString;
 }
@@ -287,7 +222,7 @@ function getWebsite(restaurant) {
       "geometry",
       "url",
     ],
-    radius: 0,
+    radius: request.radius,
   };
 
   var websiteDiv = document.createElement("div");
@@ -320,25 +255,20 @@ function getWebsite(restaurant) {
     parent.appendChild(subDiv);
   }
 
-
-
   service.getDetails(requestDetails, callbackDetails);
 
   function callbackDetails(place, status) {
-    if (
-      status == google.maps.places.PlacesServiceStatus.OK
-    ) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
       createWebsiteElement(place, websiteDiv);
       createMarker(place);
       try {
         var k = document.querySelector(
           ".restaurant-container[place_id=" + restaurant.place_id + "]"
-          
         );
         k.appendChild(websiteDiv);
         createTextElement(place, k);
       } catch (error) {
-        console.log(k)
+        console.log(k);
         console.log(error.message);
       }
       webAdresses.push(place.website);
@@ -347,7 +277,7 @@ function getWebsite(restaurant) {
     ) {
       setTimeout(function () {
         getWebsite(restaurant);
-      }, 800);
+      }, 1500);
     }
   }
 }
@@ -383,7 +313,7 @@ function colorRating(ratingDiv, score) {
     }
   }
 }
-
+/*
 function deleteRestaurants() {
   parent = document.getElementById("main-page-wrapper");
   while (parent.hasChildNodes()) {
@@ -391,7 +321,7 @@ function deleteRestaurants() {
   }
   webAdresses = [];
 }
-
+*/
 function createMarker(place) {
   var image = {
     url: "../resources/images/sted_pil-01.svg",
@@ -413,14 +343,14 @@ function createMarker(place) {
     }
   });
 }
-
+/*
 function deleteMarker(markers) {
   for (var i = 0; i < markers.length; i++) {
     markers[i].setMap(null);
   }
   markers = [];
 }
-
+*/
 function initCircle() {
   var newCircle = new google.maps.Circle({
     strokeColor: "#df6020",
@@ -435,11 +365,11 @@ function initCircle() {
 
   locationCircle = newCircle;
 }
-
+/*
 function deleteLocationCircle() {
   locationCircle.setMap(null);
 }
-
+*/
 function drawLocationCircle() {
   if (locationCircle) {
     locationCircle.setMap(null);
@@ -448,6 +378,53 @@ function drawLocationCircle() {
   locationCircle.radius = Math.sqrt(request.radius ** 2);
 }
 
-document
-  .getElementById("radius")
-  .addEventListener("change", drawLocationCircle);
+//get numeric value of the rating
+//wait for change in the fieldset tag
+document.getElementById("pricing").addEventListener("change", function () {
+  //loop through input tags to find the "checked" input tag
+  for (item of document
+    .getElementById("pricing")
+    .getElementsByTagName("input")) {
+    if (item.checked) {
+      request.price_level = parseFloat(item.value); //return the checked value
+    }
+  }
+
+  var pricing = document.querySelectorAll(
+    "#main-page-wrapper .restaurant-container"
+  );
+
+  for (var i = 0; i < pricing.length; i++) {
+    pricing[i].style.display = "unset";
+    if (pricing[i].getAttribute("price_level") > request.price_level) {
+      pricing[i].style.display = "none";
+    } else {
+      pricing[i].style.display = "unset";
+    }
+  }
+});
+
+//get numeric value of the rating
+//wait for change in the fieldset tag
+document.getElementById("rating").addEventListener("change", function () {
+  //loop through input tags to find the "checked" input tag
+  for (item of document
+    .getElementById("rating")
+    .getElementsByTagName("input")) {
+    if (item.checked) {
+      request.rating = parseFloat(item.value); //return the checked value
+    }
+  }
+  var restaurants = document.querySelectorAll(
+    "#main-page-wrapper .restaurant-container"
+  );
+
+  for (var i = 0; i < restaurants.length; i++) {
+    restaurants[i].style.display = "unset";
+    if (restaurants[i].getAttribute("rating") < request.rating) {
+      restaurants[i].style.display = "none";
+    } else {
+      restaurants[i].style.display = "unset";
+    }
+  }
+});

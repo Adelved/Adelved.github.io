@@ -403,9 +403,11 @@ div.content {
   content: url(../img/logo_spisitrondheim-01.png);
   height: 50%;
   position: absolute;
-  top: 25%;
+  top: 10%;
   left: 15%;
 }
+
+
 @media screen and (max-width: 700px) {
   #navbar-wrapper{
     position: relative;
@@ -550,43 +552,6 @@ label {
     margin-bottom: 0;
     margin-top: 0px;
   }
-  
-/* ikke synne jeanette */
-input[type="range"] {
-  -webkit-appearance: none;
-}
-
-input[type="range"]:focus {
-  outline: none;
-}
-
-input[type="range"]::-webkit-slider-runnable-track {
-  background: #df6020;
-  height: 5px;
-}
-
-input[type="range"]::-moz-range-track {
-  background: #df6020;
-  height: 5px;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 15px;
-  width: 15px;
-  background: #df6020;
-  margin-top: -5px;
-  border-radius: 50%;
-  border: solid 1px white;
-}
-
-input[type="range"]::-moz-range-thumb {
-  height: 15px;
-  width: 15px;
-  background: #df6020;
-  margin-top: -5px;
-  border-radius: 50%;
-}
 
 .mapButtonOpen {
   position: absolute;
@@ -1152,6 +1117,7 @@ min-width: 160px;
 height: 50px;
 background-color: #df6020;
 border-radius: 25px;
+border: none;
 
 font-family: 'Open Sans', sans-serif;
 font-size: 16px;
@@ -1166,6 +1132,8 @@ transition: all 0.4s;
 
 .contact-form-button:hover {
 background-color: #1a1a2e;
+cursor: pointer;
+border: none;
 }
 
 /* Responsiv form */
@@ -1242,8 +1210,14 @@ background-color: #1a1a2e;
   display: block;
 }
 
+button:hover{
+  cursor: pointer;
+}
+
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+  background-color: #ddd;
+  }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}

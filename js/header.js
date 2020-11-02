@@ -11,7 +11,7 @@ var li = document.createElement("li");
 var img = document.createElement('img')
 var a = document.createElement("a")
 a.setAttribute("href","./index.html")
-img.setAttribute('class','logo')
+a.setAttribute('class','logo')
 a.appendChild(img)
 li.appendChild(a)
 nav.appendChild(li)
