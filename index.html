@@ -1,55 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" id="home">
   <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="//fonts.googleapis.com/css?family=Open+Sans"
-    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="img/favico.ico" />
+    <title>Hjem</title>
   </head>
 
   <body>
-
-      <div id="navbar-wrapper">
+    <div id="navbarWrapper">
       <ul id="navbar"></ul>
-      </div>
+    </div>
 
     <div id="backgroundContainer">
-      <div id="frontpage-container1">
-        <div class="content-frontpage">
-          <div class="title1">
+      <div id="frontpageContainer1">
+        <div class="contentFrontpage">
+          <div class="blackTitle">
             <h2>HVOR VIL</h2>
             <h1>DU SPISE?</h1>
             <div class="hl"></div>
           </div>
           <div id="locationButtons">
             <div>
-              <a href="./find-restaurant.html"><button><span>SOLSIDEN</span></button></a>
-              <a href="./find-restaurant.html"><button><span>SENTRUM</span></button></a>
+              <a href="find-restaurant.html"
+                ><div class="buttonDivIndex"><span>SOLSIDEN</span></div></a
+              >
+              <a href="find-restaurant.html"
+                ><div class="buttonDivIndex"><span>SENTRUM</span></div></a
+              >
             </div>
 
             <div>
-              <a href="./find-restaurant.html"><button><span>ILA</span></button></a>
-              <a href="./find-restaurant.html"><button><span>BAKKLANDET</span></button></a>
+              <a href="find-restaurant.html"
+                ><div class="buttonDivIndex"><span>ILA</span></div></a
+              >
+              <a href="find-restaurant.html"
+                ><div class="buttonDivIndex"><span>BAKKLANDET</span></div></a
+              >
             </div>
 
             <div>
-              <a href="./find-restaurant.html"><button><span>LADE</span></button></a>
-              <a href="./find-restaurant.html"><button><span>PRØV LYKKEN</span></button></a>
+              <a href="find-restaurant.html"
+                ><div class="buttonDivIndex"><span>LADE</span></div></a
+              >
+              <a href="find-restaurant.html"
+                ><div id="lucky" class="buttonDivIndex"><span>PRØV LYKKEN</span></div></a
+              >
             </div>
           </div>
         </div>
         <img
-          class = "frontpage-img "
-          src="./resources/images/forside_mindrefil_spisitrondheim.jpg"
+          class="frontpageImg"
+          src="img/forside_mindrefil_spisitrondheim.jpg"
           alt="backgroundImage.jpg"
         />
       </div>
-      <div id="frontpage-container2">
-        <div class="content-frontpage">
+      <div id="frontpageContainer2">
+        <div class="contentFrontpage">
           <div class="title2">
             <h2>BRUK TID</h2>
             <h1>PÅ DET DU VIL</h1>
@@ -66,35 +78,36 @@
               hendrerit interdum.
             </p>
           </div>
-          <button onclick="window.location.href='./about.html' ">
+          <button onclick="window.location.href='about.html' ">
             <span>OM OSS OG VÅR IDÈ</span>
           </button>
         </div>
         <img
           class="questionPeople"
-          src="./resources/images/people_questions.png"
+          src="img/people_questions.png"
           alt="people_questions.png"
         />
       </div>
-      <div id="frontpage-container3">
-        <div class="content-frontpage">
+      <div id="frontpageContainer3">
+        <div class="contentFrontpage">
           <div class="title3">
             <h2>HAR DU NOEN SPØRSMÅL</h2>
-            <h1>ANGÅENDE SPIS I TRONDHEIM?</h1>
+            <h1 class="longName">ANGÅENDE SPIS I TRONDHEIM?</h1>
             <div class="hl"></div>
-            <button onclick="window.location.href='./contact.html' ">
+            <button onclick="window.location.href='contact.html' ">
               <span>KONTAKT OSS</span>
             </button>
           </div>
         </div>
         <img
-         class = "frontpage-img "
-         src="./resources/images/forside_nrto_spisitrondheim.jpg" alt="" />
+          class="frontpageImg"
+          src="img/forside_nrto_spisitrondheim.jpg"
+          alt="forside_nrto_spisitrondheim.jpg"
+        />
       </div>
-      <footer id = "footer"></footer>
+      <footer id="footer"></footer>
     </div>
-   
-    
+
     <script src="./js/locationsToButtons.js"></script>
     <script src="./js/createSVG.js"></script>
     <script src="./js/getPositionFrontpage.js"></script>

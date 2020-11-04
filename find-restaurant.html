@@ -1,80 +1,142 @@
 <!DOCTYPE html>
-<html lang="en" id= "restaurant">
-    <head>
-        
-        <link rel="stylesheet" href="css/styles.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
-    </head>
-    
-    <body>
-        <div id="navbar-wrapper">
-            <ul id="navbar"></ul>
-        </div>
+<html lang="en" id="restaurant">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="img/favico.ico" />
+    <title>Finn restaurant</title>
+  </head>
 
-        <div class="header-pad" style="position: relative;">
-        <div class = "controls">
-            <!--Adapted after https://stackoverflow.com/questions/58039721/issue-with-star-rating-css*/-->
-            <p>Max pris</p> 
-            <fieldset id="pricing">
-                <input type="radio" id="price4" name="pricing" value="4"/><label class = "4price" for="price4" title="Expensive"></label>
-                <input type="radio" id="price3" name="pricing" value="3" /><label class="3price" for="price3" title="Pricy"></label>
-                <input type="radio" id="price2" name="pricing" value="2" /><label class = "2price" for="price2" title="Affordable"></label>
-                <input type="radio" id="price1" name="pricing" value="1" /><label class="1price" for="price1" title="Cheap"></label>
-            </fieldset>
-
-            <!--Adapted after https://stackoverflow.com/questions/58039721/issue-with-star-rating-css*/-->
-            <p>Minimum vurdering</p>
-            <fieldset id="rating">
-                <input type="radio" id="star5" name="rating" value="5"/><label class = "full" for="star5"></label>
-                <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half"></label>
-                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4"></label>
-                <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half"></label>
-                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3"></label>
-                <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half"></label>
-                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2"></label>
-                <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half"></label>
-                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1"></label>
-                <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf"></label>
-            </fieldset>
-
-            <div class="dropdown">
-                <button class="dropbtn">Bytt område</button>
-                <div class="dropdown-content">
-                  <a href="/find-restaurant.html"><button><span>SOLSIDEN</span></button></a>
-                  <a href="/find-restaurant.html"><button><span>SENTRUM</span></button></a>
-                  <a href="/find-restaurant.html"><button><span>ILA</span></button></a>
-                  <a href="/find-restaurant.html"><button><span>BAKKLANDET</span></button></a>
-                  <a href="/find-restaurant.html"><button><span>LADE</span></button></a>
-                </div>
-              </div>
-    
-
-        </div>
-
-            <div id="mapBox">
-                <div id = "buttonBox" class="map"></div>
-                <div id="map" class="map"></div>
-            </div>
-
-            <div id="main-page-wrapper">
-                
-
-            </div>
-            
-            <div class = "footer-padding"></div>
-            <footer id = "footer"></footer>
-            
-        </div>
-            
-        
-        
-        
+  <body>
+    <div id="navbarWrapper">
+      <ul id="navbar"></ul>
     </div>
 
+    <div class="headerPad" style="position: relative">
+      <div class="controls">
+        <!--Adapted after https://stackoverflow.com/questions/58039721/issue-with-star-rating-css*/-->
+        <!--The price values are taken from:
+            https://stackoverflow.com/questions/40005100/what-is-the-pricerange-parameter-for-google-structured-data-reviews#:~:text=%24%20%3D%20Inexpensive%2C%20usually%20%2410%20and,Expensive%2C%20usually%20%2450%20and%20up
+            and multiplied by 10 to get a rough estimate of the price in NOK-->
+        <p>Max pris</p>
+        <div class="priceRatingWrapper">
+          <fieldset id="pricing">
+            <input type="radio" id="price4" name="pricing" value="4" /><label
+              class="4price"
+              for="price4"
+              title=">500NOK"
+            ></label>
+            <input type="radio" id="price3" name="pricing" value="3" /><label
+              class="3price"
+              for="price3"
+              title="~250-400NOK"
+            ></label>
+            <input type="radio" id="price2" name="pricing" value="2" /><label
+              class="2price"
+              for="price2"
+              title="~100-250NOK"
+            ></label>
+            <input type="radio" id="price1" name="pricing" value="1" /><label
+              class="1price"
+              for="price1"
+              title="~100NOK"
+            ></label>
+          </fieldset>
+        </div>
+        <br />
 
-        
+        <!--Adapted after https://stackoverflow.com/questions/58039721/issue-with-star-rating-css*/-->
+        <br />
+        <p>Minimum vurdering</p>
+        <div class="priceRatingWrapper">
+          <fieldset id="rating">
+            <input type="radio" id="star5" name="rating" value="5" /><label
+              class="full"
+              for="star5"
+            ></label>
+            <input
+              type="radio"
+              id="star4half"
+              name="rating"
+              value="4.5"
+            /><label class="half" for="star4half"></label>
+            <input type="radio" id="star4" name="rating" value="4" /><label
+              class="full"
+              for="star4"
+            ></label>
+            <input
+              type="radio"
+              id="star3half"
+              name="rating"
+              value="3.5"
+            /><label class="half" for="star3half"></label>
+            <input type="radio" id="star3" name="rating" value="3" /><label
+              class="full"
+              for="star3"
+            ></label>
+            <input
+              type="radio"
+              id="star2half"
+              name="rating"
+              value="2.5"
+            /><label class="half" for="star2half"></label>
+            <input type="radio" id="star2" name="rating" value="2" /><label
+              class="full"
+              for="star2"
+            ></label>
+            <input
+              type="radio"
+              id="star1half"
+              name="rating"
+              value="1.5"
+            /><label class="half" for="star1half"></label>
+            <input type="radio" id="star1" name="rating" value="1" /><label
+              class="full"
+              for="star1"
+            ></label>
+            <input type="radio" id="starhalf" name="rating" value="0.5" /><label
+              class="half"
+              for="starhalf"
+            ></label>
+          </fieldset>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">Bytt område</button>
+          <div class="dropdownContent">
+            <a href="find-restaurant.html"
+              ><div><span>SOLSIDEN</span></div></a
+            >
+            <a href="find-restaurant.html"
+              ><div><span>SENTRUM</span></div></a
+            >
+            <a href="find-restaurant.html"
+              ><div><span>ILA</span></div></a
+            >
+            <a href="find-restaurant.html"
+              ><div><span>BAKKLANDET</span></div></a
+            >
+            <a href="find-restaurant.html"
+              ><div><span>LADE</span></div></a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div id="mapBox">
+        <div id="buttonBox" class="map"></div>
+        <div id="map" class="map"></div>
+      </div>
+
+      <div id="mainPageWrapper"></div>
+    </div>
+    <div class="footerPadding"></div>
+    <footer id="footer"></footer>
+
     <script src="./js/locationsToButtons.js"></script>
     <script src="./js/getPositionsRestaurant.js"></script>
     <script src="./js/createSVG.js"></script>
@@ -82,10 +144,8 @@
     <script src="./js/mapstyle.js"></script>
     <script src="./js/closeableMap.js"></script>
     <script src="./js/mapscript.js"></script>
-    <script id="api" type="text/javascript"></script>
+    <script id="api"></script>
     <script src="./js/importAPI.js"></script>
     <script src="./js/footer.js"></script>
-
-
-    </body>
+  </body>
 </html>

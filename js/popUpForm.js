@@ -1,4 +1,6 @@
-var sendButton = document.querySelectorAll('.contact-form-button')[0]
-sendButton.addEventListener('click',function(){
-    alert("Takk for din tilbakemelding!")
-})
+//popup alert when the form is sent from contact.html
+var sendButton = document.querySelectorAll(".contactFormButton")[0];
+
+sendButton.addEventListener("submit", function () {
+    alert("Takk for din tilbakemelding!");
+});

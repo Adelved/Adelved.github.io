@@ -1,3 +1,4 @@
+//style object for the map
 const mapstyle = [
   {
     elementType: "geometry",

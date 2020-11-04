@@ -1,74 +1,99 @@
 <!DOCTYPE html>
 <html lang="en" id="contact">
   <head>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title >Kontakt oss</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="img/favico.ico" />
+    <title>Kontakt oss</title>
   </head>
 
   <body>
-    <div id="navbar-wrapper">
+    <div id="navbarWrapper">
       <ul id="navbar"></ul>
-      </div>
-
-    
-    <div class=contact_us> </div>
-      <h1 class="contact_text">Kontakt oss</h1>
     </div>
-  
-    
-    
-    <div class="form_background">
 
-      <div class="container-form">
-        <div class="wrap-form">
-          <div class="form-img" style="background-image: url(img/kontaktoss_form_bilde.png);">
-          </div>
-    
-    
-          <form class="contact-form">
-            <div class="wrap-input1" data-validate="Name is required">
-              <span class="label-input1">Navn:</span>
-              <input class="input1" type="text" name="name" placeholder="Fornavn og etternavn" required>
-              <span class="focus-input1"></span>
+    <div class="contactUs">
+      <h1 class="contactText">Kontakt oss</h1>
+    </div>
+
+    <div class="formBackground">
+      <div class="containerForm">
+        <div class="wrapForm">
+          <img
+            class="formImg"
+            src="img/kontaktoss_form_bilde.png"
+            alt="kontaktoss_form_bilde.png"
+          />
+
+          <form id="contactForm" method="POST" action="">
+            <div class="wrapInput1" data-validate="Name is required">
+              <label for=name class="labelInput1">Navn:</label>
+              <input
+                class="input1"
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Fornavn og etternavn"
+                required
+              />
+              <label class="focusInput1"></label>
             </div>
-    
-            <div class="wrap-input1" data-validate = "Valid email is required: ex@abc.xyz">
-              <span class="label-input1">Email:</span>
-              <input class="input1" type="text" name="email" placeholder="Din email" required>
-              <span class="focus-input1"></span>
+
+            <div
+              class="wrapInput1"
+              data-validate="Valid email is required: ex@abc.xyz"
+            >
+              <label for="email" class="labelInput1">Email:</label>
+              <input
+                class="input1"
+                type="email"
+                name="email"
+                id = "email"
+                placeholder="Din email"
+                required
+              />
+              <label class="focusInput1"></label>
             </div>
-    
-            <div class="wrap-input1" data-validate="Phone is required">
-              <span class="label-input1">Emne:</span>
-              <input class="input1" type="text" name="emne" placeholder="Ditt emne" required>
-              <span class="focus-input1"></span>
+
+            <div class="wrapInput1" data-validate="Phone is required">
+              <label for="emne" class="labelInput1">Emne:</label>
+              <input
+                class="input1"
+                type="text"
+                name="emne"
+                id="emne"
+                placeholder="Ditt emne"
+                required
+              />
+              <label class="focusInput1"></label>
             </div>
-    
-            <div class="wrap-input1" data-validate = "Message is required">
-              <span class="label-input1">Melding:</span>
-              <textarea class="input1" name="message" required placeholder="Din melding..."></textarea>
-              <span class="focus-input1"></span>
+
+            <div class="wrapInput1" data-validate="Message is required">
+              <label for="message" class="labelInput1">Melding:</label>
+              <textarea
+                class="input1"
+                name="message"
+                id="message"
+                required
+                placeholder="Din melding..."
+              ></textarea>
+              <label class="focusInput1"></label>
             </div>
-    
-            <div class="container-contact-form-button">
-              <button class="contact-form-button">
-                <span>Send skjema</span></div>
-              </button>
+
+            <div>
+              <input type="submit" class="contactFormButton" value="Send skjema"></input>
+            </div>
           </form>
         </div>
       </div>
-  
-
-
-
     </div>
 
-
-    
-  
-    <footer id = "footer"></footer>
+    <footer id="footer"></footer>
     <script src="./js/createSVG.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/footer.js"></script>
