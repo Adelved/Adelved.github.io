@@ -1,6 +1,6 @@
 //fetch API key from the config file and append to the https request for the google api
 var apiTag = document.getElementById("api");
-fetch("/config.json")
+fetch("./config.json")
   .then((response) => response.json())
   .then(function (config) {
     apiTag.setAttribute(
