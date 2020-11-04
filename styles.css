@@ -317,7 +317,7 @@ ul#navbar li a:hover:not(.active) {
 }
 
 @media only screen and (max-width: 768px) {
-  #backgroundContainer img:not(.locationMarker, #footer){
+  #backgroundContainer img:not(#footer) img:not(.locationMarker){
     display: none;
   }
 
