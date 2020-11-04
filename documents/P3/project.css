@@ -1,0 +1,39 @@
+article {
+    width: 75ch;
+    margin: auto;
+    line-height: 1.5;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: lightgray;
+    color: #323232;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 0px;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+img {
+    width: 100%;
+}
+
+section {
+    font-size: 18px;
+    font-weight: 200;
+}
+
+
+#intro {
+    border-top: 1px solid;
+}
+#table td {
+    width: 100%;
+    border: 1px solid black;
+    padding: 1%;
+}

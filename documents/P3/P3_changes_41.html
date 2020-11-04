@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="NO">
+  <head>
+    <title>P3</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="project.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <article>
+      <img src="spisitrondheim_sort-01.png" alt="Cover image" />
+      <header>
+        <h1 >P3 - Endringer vi har gjort</h1>
+        <p>Tekst: Solveig, Dennis, Eline, Jeanett og Synne</p>
+      </header>
+      <section id="intro">
+        <p>Kunde – Trondheim Kommune</p>
+        <p>Kontaktperson: Sulten Sultensen</p>
+        <p>Nettside: <a href="https://adelved.github.io" target="_blank" >wwww.spisitrondheim.no</a></p>
+      </section>
+
+      <section>
+        <h3>Generelle endringer</h3>
+        <p>
+          Fra P2 har vi gjort flere små endringer på vårt design. Dette gjelder blant annet størrelse på alle overskrifter.
+          H1 er omgjort til 4em og h2/underoverskrifter er omgjort til 3em. Lokale variasjoner forekommer for å unngå overflyt.  </p>
+
+          <p>Vi valgte også å beholde header i den størrelsen den er uten å “resize” når brukeren scroller på nettsiden.
+            Dette valgte vi fordi vi ønsket et konsistent design. Margin på header ble også endret fordi tekst og logo måtte være likestilt.
+            Det ble mye rot når logo skulle ha en margin på 20% på bakgrunn av at tekst som kom under header startet på annen linje enn logo. </p>
+
+          <p>Brødtekst er endret fra Helvetica til Open sans. Dette fordi vi ble enige om at denne var lettere å lese 
+          på mørk bakgrunn. </p>
+          
+          <p>En annen generell endring vi har gjort på hele nettsiden er å endre språket fra engelsk til norsk. 
+          Dette valgte vi å endre på ettersom vår målgruppe er nordmenn, og da spesielt folk bosatt i Trondheim.
+          Det virket derfor lite hensiktsmessig å ha engelsk tekst på nettsiden. </p>
+      </section>
+
+      <section>
+        <h3>Endringer gjort på index.html:</h3>
+        <p>
+          Vi har byttet knappen med teksten “alle”, til en knapp som sender brukeren et spesifikt sted basert 
+          på tilfeldig trekning med teksten “prøv lykken”. Formålet med nettsiden er å vise brukerne nye 
+          steder å spise på, og dermed er denne knappen svært relevant for å “tvinge” brukeren ut av sin 
+          komfortsone. I tillegg kan denne knappen virke spennende, da den gir et tilfeldig utvalg, noe som
+          kan være greit på dager man er litt mer ubesluttsom. Det er laget en funksjon som velger en 
+          tilfeldig lokasjon blant de 5 ulike posisjonene vi har definert i skriptet. Det betyr i praksis
+          at ved å trykke på knappen, vil nettsiden velge en tilfeldig lokasjon blant Solsiden, Sentrum,
+          Ila, Bakklandet og Lade, og føre brukeren til “Finn restaurant”-siden som viser restaurantene 
+          i det valgte området. </p>
+
+          <p>Nederst på siden endret vi overskriften fra "Det er ikke alltid lett å finne et sted å spise" til "Har du noen spørmsål angående Spis
+            i Trondheim?". 
+            Vi endret også teksten på knappen fra "Finn restaurant" til "Kontakt oss", da dette passet overskriften bedre.
+          
+
+        </p>
+      
+      </section>
+
+      <section>
+        <h3>Endringer gjort på about.html: </h3>
+        <p>
+          Her har vi endret på både plassering og posisjon til overskriften “Om oss”. Der den tidligere 
+          var hvit og plassert over header-bildet på siden, er den nå oransje og plassert i midten 
+          under header-bildet. Dette gjorde vi for å få en mer sammenheng mellom de ulike sidene, 
+          hvor overskriftene er oransje og har en mer sentral plassering.
+        </p>
+
+      <section>
+        <h3>Endringer gjort på contact.html: </h3>
+        <p>Her endret vi slik at skjemaet fikk en mer avrundet form. Dette gjorde vi basert på at 
+          kvasse kanter fremstår som veldig hardt, og ved å bruke mer avrundede hjørner vil skjemaet 
+          fremstå som mer visuelt tilfredstillende. Dette er også gjort på button. Ellers er 
+          denne siden som beskrevet i P2. </p>
+      </section>
+        
+        <h3>Endringer gjort på find-restaurant.html: </h3>
+        <p>Vi valgte å fjerne bildet fra toppen, da dette skapte litt mye støy med tanke på det 
+          store kartet vi bruker. Dette kan virke forstyrrende for brukeren.</p>
+        
+        <h3>Endringer gjort i closeableMap.js:</h3>
+        <p>For å gjøre det lettere å designe siden responsiv, så endret vi bredden av kartet når
+           det var ekspandert fra 1200x600 px til å være 80% av bredden med høyde 600px. </p>
+        
+        <h3>Lagt til config.json:</h3>
+        <p>JSON-fil som inneholder Google API-key. Selv om API-key er låst til å kun virke 
+          fra vår side så vil vi begrense delingen av nøkkelen, f.eks i gruppens GitHub 
+          prosjekt. Vi legger derfor dette i en separat fil og adder denne filen til .gitignore. </p>
+
+        <h3>Lagt til importAPI.js:</h3>
+        <p>Dette skriptet er ansvarlig for å hente API-nøkkelen i JSON filen og legge den 
+          i riktig plass i https requesten til Google APIet. 
+        </p>
+
+        <h3>Lagt til createSVG.js:</h3>
+        <p>Siden vi trenger å lage SVG elementer på flere sider (index.html og find-restaurant.html)
+           så laget vi en funksjon til dette som kan bli importert der den trengs. Brukes av både 
+           positionSVGmarkers.js og footer.js.
+        </p>
+
+        <h3>Lagt til positionSVGmarkers.js:</h3>
+        <p>Siden SVG html taggene er veldig lange så ønsket vi ikke å plassere de direkte inn i 
+          index.html. Vi bruker dermed dette scriptet til å hente ut elementene som skal 
+          inneholde SVG markører (navigasjonsknappene i index.html), lage markører element 
+          og plassere de i knappene. 
+        </p>
+
+        <h3>Lagt til footer.js:</h3>
+        <p>Siden footeren skal være til stede i alle html dokumentene så har vi laget et 
+          script for å håndtere generering av footer. Dette har vi gjort for å opprettholde 
+          the DRY principle.
+        </p>
+
+        <h3>Lagt til header.js:</h3>
+        <p>Siden headeren skal være til stede i alle html dokumentene så har vi laget et script
+           for å håndtere generering av header. Dette har vi gjort for å opprettholde the DRY principle.
+        </p>
+
+        <h3>Lagt til locationsToButtons.js:</h3>
+        <p>Dette scriptet er ansvarlig for å legge til eventListener til knapper som har som 
+          oppgave å endre posisjonen man søker etter restauranter. Dette er gjort til et eget 
+          script siden dette blir gjort både i index.html og i find-restaurant.html slik at DRY 
+          opprettholdes. Brukes både av getPositionsFrontpage.js og getPositionsRestaurant.js. 
+        </p>
+        <h3>Lagt til getPositionsFrontpage.js og getPositionsRestaurant.js:</h3>
+        <p>Disse scriptene selecter de relevante knappene og kaller på locationsToButtons.js 
+          fra henholdsvis index.html og find-restaurant.html.
+        </p>
+
+        <h3>Lagt til locationsToButtons.js:</h3>
+        <p>Dette scriptet er ansvarlig for å legge til eventListener til knapper som har som 
+          oppgave å endre posisjonen man søker etter restauranter. Dette er gjort til et eget 
+          script siden dette blir gjort både i index.html og i find-restaurant.html slik at 
+          DRY opprettholdes. Brukes både av getPositionsFrontpage.js og getPositionsRestaurant.js.
+        </p>
+
+        <h3>Lagt til popUpForm.js:</h3>
+        <p>Script som kjøres fra contact.html når send skjema knappen blir trykket på. Sender 
+          en alert og takker for tilbakemelding. 
+        </p>
+
+        <h3>Endret mapScript.js:</h3>
+        <p> Lagt til et extra API (getDetails) for å hente inn mer informasjon om restaurantene.
+           Har restrukturert koden slik at API-et blir kun kallet på én gang, når DOM lastes inn,
+            slik at API-kostnaden reduseres. For å ytterligere begrense kostnader knyttet til 
+            API-et hentes kun de 20 første resultatene fra API-kallet. 
+        </p>
+       </section>
+        <section>
+          <h3>Liste over filer og mapper</h3>
+          <ul>
+            <li>index.html</li>
+            <li>about.html</li>
+            <li>contact.hmtl</li>
+            <li>find-restaurant.html</li>
+            <li>images/
+            <ul>
+              <li>background_form.png</li>
+              <li>dennis.png</li>
+              <li>eline.png</li>
+              <li>favico.ico</li>
+              <li>footer_omoss-01.png</li>
+              <li>forside_mindrefil_spisitrondheim.jpg</li>
+              <li>forside_nrto_spisitrondheim.jpg</li>
+              <li>header_omoss-01.png</li>
+              <li>jeanett-01.png</li>
+              <li>kontakt_oss.png</li>
+              <li>kontaktoss_form_bilde.png</li>
+              <li>logo.png</li>
+              <li>lotfi.png</li>
+              <li>people_questions.png</li>
+              <li>solveig.png</li>
+              <li>sted_pil-01.svg</li>
+              <li>synne-01.png</li>
+              <li>SoMe
+              <ul>
+                <li>facebook.svg</li>
+                <li>instagram.svg</li>
+                <li>twitter.svg</li>
+              </ul>
+              </li>
+            </ul>
+            </li>
+            <li>js/
+             <ul>
+              <li>closeableMap.js</li>
+              <li>createSVG.js</li>
+              <li>footer.js</li>
+              <li>getPositionsFrontpage.js</li>
+              <li>getPositionsRestaurant.js</li>
+              <li>header.js</li>
+              <li>importAPI.js</li>
+              <li>locationsToButtons.js</li>
+              <li>mapscripts.js</li>
+              <li>mapstyle.js</li>
+              <li>popUpForm.js</li>
+              <li>positionSVGmarkers.js</li>
+             </ul>
+            </li>
+            <li>styles.css</li>
+          </ul>
+        </section>
+
+          <table id="table">
+            <tr>
+              <th>Filnavn</th>
+              <th>Ansvarlig</th> 
+              <th>Utførelse</th>
+            </tr>
+            <tr>
+              <td>index.html</td>
+              <td>Synne</td>
+              <td>Synne fylte sitt minimumskrav ved å lage index.html filen og stylet den i styles.css.</td>
+            </tr>
+            <tr>
+              <td>about.html</td>
+              <td>Solveig</td>
+              <td>Solveig fylte sitt minimumskrav ved å lage about.html filen og stylet den i styles.css.</td>
+            </tr>
+            <tr>
+              <td>contact.html</td>
+              <td>Jeanett</td>
+              <td>Jeanett fylte sitt minimumskrav ved å lage contact.html filen og stylet den i styles.css.</td>
+            </tr>
+            <tr>
+              <td>find-restaurant.html</td>
+              <td>Eline</td>
+              <td>Eline fylte sitt minimumskrav ved å lage find-restaurant.html og stylet den i styles.css.</td>
+            </tr>
+            <tr>
+              <td>closeableMap.js</td>
+              <td>Dennis</td>
+              <td>Dennis fylte sitt minimumskrav ved å lage closeableMap.js som lukker og åpner et kart og knyttet den til find-restaurant.html.</td>
+            </tr>
+            <tr>
+              <td>mapstyle.js</td>
+              <td>Synne</td>
+              <td>Synne lagde mapstyle.js, som stylet kartet på siden og knyttet den til find-restaurant.html.</td>
+            </tr>
+            <tr>
+              <td>mapscripts.js</td>
+              <td>Dennis</td>
+              <td>Dennis lagde mapscripts.js, som håndterer de fleste av funksjonene og knyttet den til find-restaurant.html.</td>
+            </tr>
+            <tr>
+              <td>createSVG.js</td>
+              <td>Jeanett</td>
+              <td>Jeanett lagde createSVG.js, som henter en svg-fil fra en kilde og lager et bilde av det, og knyttet den til find-restaurant.html.</td>
+            </tr>
+            <tr>
+              <td>footer.js</td>
+              <td>Eline</td>
+              <td>Eline lagde footer.js, som generer en footer som er lik på alle sidene, og knyttet den til index.html, about.html, contact.html, og find-restaurant.html.</td>
+            </tr>
+            <tr>
+              <td>getPositionsFrontpage.js</td>
+              <td>Dennis</td>
+              <td>Dennis lagde getPositionsFrontpage, som velger de relevante knappene og kaller på locationsToButtons.js 
+                fra henholdsvis index.html og find-restaurant.html.</td>
+            </tr>
+            <tr>
+              <td>getPositionsRestaurant.js</td>
+              <td>Dennis</td>
+              <td>Dennis lagde getPositionsRestaurant, som selecter de relevante knappene og kaller på locationsToButtons.js 
+                fra henholdsvis index.html og find-restaurant.html. </td>
+            </tr>
+            <tr>
+              <td>header.js</td>
+              <td>Eline</td>
+              <td>Eline lagde header.js, som generer en header som er lik på alle sidene, og knyttet den til index.html, about.html, contact.html, og find-restaurant.html.</td>
+            </tr>
+            <tr>
+              <td>importAPI.js</td>
+              <td>Dennis</td>
+              <td>Dennis lagde importAPI.js, som er ansvarlig for å hente API-nøkkelen i JSON filen og legge den 
+                i riktig plass i https requesten til Google APIet, som er tilknyttet find-restaurant.html.</td>
+            </tr>
+            <tr>
+              <td>locationsToButtons.js</td>
+              <td>Jeanett</td>
+              <td>Jeanett lagde locationsToButtons.js som er ansvarlig for å legge til eventListener til knapper som har som 
+                oppgave å endre posisjonen man søker etter restauranter, og er tilknyttet til index.html og find-restaurant.html.</td>
+            </tr>
+            <tr>
+              <td>popUpForm.js</td>
+              <td>Solveig</td>
+              <td>Solveig lagde popUpForm.js, som sender en alert når send skjema knappen blir trykket på, og er tilknyttet til contact.html</td>
+            </tr>
+            <tr>
+              <td>positionSVGmarkers.js</td>
+              <td>Solveig</td>
+              <td>Solveig lagde positionSVGmarkers.js, som brukes til å hente ut elementene som skal 
+                inneholde SVG markører, lage markører-element og plassere de i knappene, og er tilknyttet index.html. </td>
+            </tr>
+            <tr>
+              <td>styles.css</td>
+              <td>Alle</td>
+              <td>Alle deltok i å lage styles.css, som styler alle sidene på nettsiden.</td>
+            </tr>
+            <tr>
+              <td>Image folder</td>
+              <td>Synne</td>
+              <td>Synne hadde ansvar for Image folder, og gjorde nødvendige endringer med tanke på filstørrelse. </td>
+            </tr>
+            <tr>
+              <td>Kvalitetssjekk</td>
+              <td>Alle</td>
+              <td>Alle deltok i å kvalitetssjekke nettsiden og dens modulariteter.</td>
+            </tr>
+          </table>
+
+
+
+        
+    </article>
+  </body>
+</html>
