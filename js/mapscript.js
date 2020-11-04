@@ -300,7 +300,8 @@ function colorRatingPricing(ratingFieldset, score) {
 function createMarker(place) {
   //define marker image
   var image = {
-    url: "/img/sted_pil-01.svg",
+    url: "img/sted_pil-01.svg",
+    alt: "locationMarker",
     scaledSize: new google.maps.Size(32, 32),
   };
   //create marker object
