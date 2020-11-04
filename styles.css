@@ -317,13 +317,19 @@ ul#navbar li a:hover:not(.active) {
 }
 
 @media only screen and (max-width: 768px) {
-  #backgroundContainer img:not(.locationMarker) {
+  #backgroundContainer img:not(.locationMarker, #footer){
     display: none;
   }
+
   #backgroundContainer
     [id*="frontpageContainer"]:not([id="frontpageContainer1"]) {
     display: none;
   }
+
+  #frontpageContainer1 img{
+    display: none;
+  }
+
 
   #backgroundContainer #frontpageContainer1 {
     width: 100%;
